@@ -1,0 +1,69 @@
+h3 {
+    color: cadetblue;
+    font-size: 6rem;
+}
+
+.parrafos {
+    color: rgb(rgb(146, 47, 47), rgb(39, 203, 39), rgb(61, 61, 150));
+    font-size: 1rem;
+}
+
+.producto-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.producto-nombre {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.producto-precio {
+    font-size: 1.2rem;
+    color: #e91e63;
+}
+
+#parrafo-id {
+    color: #4caf50;
+    font-size: 1.2rem;
+}
+* {
+    color: chartreuse;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.menu>li {
+    display: inline-block;
+    color: #2d1ea3;
+}
+
+.navbar a {
+    color: #ff5722;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+h4, h5, h6 {
+    color: #9c27b0;
+    font-size: 1.5rem;
+}
+
+button.btn-primario {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button.btn-error {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
