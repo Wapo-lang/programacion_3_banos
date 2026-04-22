@@ -1,0 +1,26 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.precio-producto{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.titulos {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.internacional {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blue;
+}
+
+.titulo-seccion {font-weight: 700;}
+.precio-producto {font-weight: 400;}
+.descripcion {font-weight: 300;}
+.nota-legal {font-weight: 500;}
+
+.precio-original {
+    text-decoration: line-through;
+    color: red;
+}
