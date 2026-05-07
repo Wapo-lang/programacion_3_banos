@@ -22,3 +22,145 @@ console.log(frutas.length);   // 3
 // Modificar un elemento
 frutas[1] = "mango";
 console.log(frutas);   // ["manzana", "mango", "cereza"]
+
+
+const arr = [1, 2, 3];
+
+// push — añade al final, devuelve la nueva longitud
+arr.push(4);
+arr.push(5, 6);           // se pueden añadir varios a la vez
+console.log(arr);          // [1, 2, 3, 4, 5, 6]
+
+// pop — elimina el último, devuelve el elemento eliminado
+const ultimo = arr.pop();
+console.log(ultimo);       // 6
+console.log(arr);          // [1, 2, 3, 4, 5]
+
+// unshift — añade al inicio (más lento que push)
+arr.unshift(0);
+console.log(arr);          // [0, 1, 2, 3, 4, 5]
+
+// shift — elimina el primero, devuelve el elemento eliminado
+const primero = arr.shift();
+console.log(primero);      // 0
+console.log(arr);          // [1, 2, 3, 4, 5]
+
+// splice — elimina, reemplaza o inserta en cualquier posición
+// splice(inicio, cuántos_eliminar, ...elementos_a_insertar)
+const meses = ["ene", "feb", "abr", "may"];
+meses.splice(2, 0, "mar");          // inserta "mar" en posición 2, elimina 0
+console.log(meses);                  // ["ene", "feb", "mar", "abr", "may"]
+
+const eliminados = meses.splice(1, 2);  // elimina 2 desde posición 1
+console.log(eliminados);             // ["feb", "mar"]
+console.log(meses);                  // ["ene", "abr", "may"]
+
+
+const numeros = [10, 20, 30, 20, 40];
+
+// indexOf — primera posición del valor, -1 si no existe
+console.log(numeros.indexOf(20));    // 1
+console.log(numeros.indexOf(99));    // -1
+
+// lastIndexOf — última posición del valor
+console.log(numeros.lastIndexOf(20));  // 3
+
+// includes — ¿existe el valor? devuelve boolean
+console.log(numeros.includes(30));   // true
+console.log(numeros.includes(99));   // false
+
+
+const numeros = [10, 20, 30, 20, 40];
+
+// indexOf — primera posición del valor, -1 si no existe
+console.log(numeros.indexOf(20));    // 1
+console.log(numeros.indexOf(99));    // -1
+
+// lastIndexOf — última posición del valor
+console.log(numeros.lastIndexOf(20));  // 3
+
+// includes — ¿existe el valor? devuelve boolean
+console.log(numeros.includes(30));   // true
+console.log(numeros.includes(99));   // false
+
+
+// slice — extrae una porción SIN modificar el original
+// slice(inicio, fin_exclusivo)
+const letras = ["a", "b", "c", "d", "e"];
+console.log(letras.slice(1, 3));    // ["b", "c"]
+console.log(letras.slice(2));       // ["c", "d", "e"]
+console.log(letras.slice(-2));      // ["d", "e"]
+console.log(letras);                // ["a", "b", "c", "d", "e"] — sin cambios
+
+// concat — une arrays, devuelve uno nuevo
+const a = [1, 2];
+const b = [3, 4];
+console.log(a.concat(b));           // [1, 2, 3, 4]
+console.log([...a, ...b]);          // igual con spread — forma moderna preferida
+
+// join — une elementos en un string
+const palabras = ["Hola", "mundo", "JS"];
+console.log(palabras.join(" "));    // "Hola mundo JS"
+console.log(palabras.join(", "));   // "Hola, mundo, JS"
+console.log(palabras.join(""));     // "HolamundoJS"
+
+// reverse — invierte el array EN SU LUGAR (muta el original)
+const nums = [1, 2, 3, 4, 5];
+nums.reverse();
+console.log(nums);                  // [5, 4, 3, 2, 1]
+
+// sort — ordena EN SU LUGAR (muta el original)
+const desordenado = [10, 1, 21, 2];
+desordenado.sort((a, b) => a - b);  // orden ascendente numérico
+console.log(desordenado);           // [1, 2, 10, 21]
+
+// ⚠️ sort sin función de comparación convierte a string — bug clásico
+const bug = [10, 1, 21, 2];
+bug.sort();
+console.log(bug);   // [1, 10, 2, 21] ← orden lexicográfico, NO numérico
+
+
+const numeros = [1, 2, 3, 4, 5];
+
+// Doblar cada número
+const dobles = numeros.map(n => n * 2);
+console.log(dobles);    // [2, 4, 6, 8, 10]
+console.log(numeros);   // [1, 2, 3, 4, 5] — original intacto
+
+// Extraer una propiedad de cada objeto
+const usuarios = [
+  { nombre: "Ana",   edad: 28 },
+  { nombre: "Luis",  edad: 31 },
+  { nombre: "Marta", edad: 25 }
+];
+
+const nombres = usuarios.map(u => u.nombre);
+console.log(nombres);   // ["Ana", "Luis", "Marta"]
+
+// Transformar la estructura de cada objeto
+const resumen = usuarios.map(u => ({
+  nombre: u.nombre,
+  mayorDeEdad: u.edad >= 18
+}));
+console.log(resumen);
+// [
+//   { nombre: 'Ana',   mayorDeEdad: true },
+//   { nombre: 'Luis',  mayorDeEdad: true },
+//   { nombre: 'Marta', mayorDeEdad: true }
+// ]
+
+
+//Ejercicio de map y filter
+//Usa map para convertir todas a Fahrenheit. Fórmula: (c * 9/5) + 32
+//Usa filter para quedarte solo con las temperaturas Celsius entre 0 y 30
+//Encadena filter + map: filtra las que estén entre 0 y 30 y conviértelas a Fahrenheit
+
+const celsius = [0, 15, -5, 22, 37, 100, -10, 28];
+const fahrenheit = celsius.map(c => (c * 9/5) + 32);
+const celsiusFilter = celsius.filter(c => c >= 0 && c <= 30);
+const fahrenheitFilterMap = celsius.filter(c => c >= 0 && c <= 30).map(c => (c * 9/5) + 32);
+console.log("Fahrenheit: "+ fahrenheit);
+console.log("Entre 0 y 30°C: "+ celsiusFilter);     
+console.log("Entre 0 y 30°C en °F: "+ fahrenheitFilterMap); 
+
+
