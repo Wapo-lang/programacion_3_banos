@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separadores de Formularios Funerarios</title>
+</head>
+<body>
+    <h1>Separadores en el Registro de Sepelios</h1>
+    <form action="/procesar-inscripcion" method="post"> 
+        <table border="1">
+            <tr>
+                <td colspan="2">
+                    <fieldset>
+                        <legend>Datos de Identidad del Difunto</legend>
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre"><br>
+
+                        <label for="email">Correo del Familiar Responsable</label>
+                        <input type="email" id="email" name="email"><br>
+
+                        <label for="telefono">Teléfono de Contacto Urgente</label>
+                        <input type="tel" id="telefono" name="telefono"><br>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <fieldset>
+                        <legend>Información de Adquisición de Cripta</legend>
+                        <label for="tarjeta">Número de Título de Propiedad o Tarjeta</label>
+                        <input type="text" id="tarjeta" name="tarjeta"><br>
+
+                        <label for="vencimiento">Fecha de Renovación de Tasa (Mes/Año)</label>
+                        <input type="month" id="vencimiento" name="vencimiento"><br>
+
+                        <label for="cvv">Código de Seguridad del Archivo (CVV)</label>
+                        <input type="password" id="cvv" name="cvv"><br>
+                    </fieldset>
+                </td>
+            </tr>
+
+            <tr> 
+                <td colspan="2">
+                    <hr> 
+                </td>
+            </tr>
+
+            <tr> 
+                <td colspan="2">
+                    <label for="comentarios">Detalles del Ritual u Observaciones de la Lápida</label><br>
+                    <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escribe aquí especificaciones sobre flores, cantos o música sacra..."></textarea><br>
+                </td>
+            </tr>
+
+        </table>
+
+        <button type="submit">Registrar Sepelio</button>
+    </form>
+</body>
+</html>

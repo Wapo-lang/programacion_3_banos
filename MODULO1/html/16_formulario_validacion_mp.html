@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Registros Necrológicos</title>
+</head>
+<body>
+    <h1>Validación de Ofrendas y Epitafios</h1>
+    <form action="/procesar-cripta" method="post" onsubmit="return validarRegistro()"> 
+        <table border="1">
+            <tr>
+                <td colspan="2">
+                    <label for="nombre">Nombre del Fallecido</label>
+                    <input type="text" id="nombre" name="nombre"><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="email">Correo del Albacea Funerario</label>
+                    <input type="email" id="email" name="email"><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="telefono">Teléfono de la Morgue o Funeraria</label>
+                    <input type="tel" id="telefono" name="telefono"><br>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit">Consagrar Registro</button>
+    </form>
+
+    <script>
+        function validarRegistro() {
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+
+            if (nombre.trim() === '') {
+                alert('Por favor, ingresa el nombre del fallecido para inscribirlo en la lápida.');
+                return false; 
+            }
+
+            if (email.trim() === '') {
+                alert('Por favor, ingresa el correo del albacea para enviar el acta de defunción.');
+                return false; 
+            }
+
+            if (telefono.trim() === '') {
+                alert('Por favor, ingresa el teléfono de la funeraria para coordinar el cortejo.');
+                return false; 
+            }
+
+            return true;
+        }
+    </script>
+    
+</body>
+</html>
