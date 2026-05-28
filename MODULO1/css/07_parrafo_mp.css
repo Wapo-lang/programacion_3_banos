@@ -1,0 +1,133 @@
+/* ==========================================================================
+   TIPOGRAFÍA Y CUERPO
+   ========================================================================== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0f14;
+  color: #cbd5e1;
+  padding: 3rem;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   FORMATEO DE PÁRRAFOS Y ESPACIADOS
+   ========================================================================== */
+.parrafo-gilead {
+  /* text-indent: Aplica una sangría a la primera línea del párrafo */
+  text-indent: 30px;
+  font-style: italic;
+}
+
+.titulo-reliquia {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #f59e0b;
+}
+
+/* Alineación Justificada: Distribuye el texto uniformemente entre los márgenes */
+.texto-justificado {
+  text-align: justify;
+  /* letter-spacing y word-spacing controlan la densidad del aire en el bloque */
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+}
+
+.pergamino-alerta {
+  background-color: #2d1616;
+  color: #f87171;
+  padding: 1rem;
+  border-left: 4px solid #ef4444;
+  text-align: center;
+}
+
+/* ==========================================================================
+   DECORACIONES DE TEXTO (text-decoration)
+   ========================================================================== */
+.texto-plano {
+  text-decoration: none; /* Remueve cualquier línea por defecto */
+}
+
+.registro-antiguo {
+  text-decoration: line-through; /* Línea horizontal que tacha el texto */
+  color: #64748b;
+}
+
+.sendero-destacado {
+  text-decoration: underline; /* Subraya el texto */
+  text-decoration-color: #8b5cf6; /* Color del subrayado */
+  text-decoration-style: wavy; /* Estilo de onda ceremonial o mística */
+  color: #a78bfa;
+}
+
+/* ==========================================================================
+   TRANSFORMACIONES (text-transform)
+   ========================================================================== */
+.emblema-gremio {
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase; /* Convierte todo a MAYÚSCULAS */
+  letter-spacing: 6px;
+}
+
+.subtitulo-capital {
+  text-transform: capitalize; /* Convierte la Primera Letra de Cada Palabra */
+  color: #38bdf8;
+}
+
+.codigo-cripta {
+  text-transform: lowercase; /* Fuerza todo a minúsculas */
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   PUNTOS SUSPENSIVOS / DESBORDAMIENTO (text-overflow)
+   ========================================================================== */
+/* Para que el text-overflow funcione, el elemento DEBE ser de bloque o inline-block,
+   su ancho debe estar limitado y el desbordamiento oculto. */
+.epitafio-truncado {
+  width: 350px;
+  white-space: nowrap;       /* Fuerza al texto a mantenerse en una sola línea */
+  overflow: hidden;          /* Esconde todo lo que se salga de los 350px */
+  text-overflow: ellipsis;   /* Agrega de forma nativa los tres puntos (...) al final */
+  background-color: #1e293b;
+  padding: 0.5rem;
+  border: 1px solid #334155;
+}
+
+/* ==========================================================================
+   ESTADOS LITÚRGICOS (Alertas)
+   ========================================================================== */
+.estado-alerta, .estado-exito, .estado-info {
+  padding: 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.estado-alerta {
+  background-color: color-mix(in srgb, #ef4444 15%, transparent);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+}
+
+.estado-exito {
+  background-color: color-mix(in srgb, #10b981 15%, transparent);
+  border: 1px solid #10b981;
+  color: #a7f3d0;
+}
+
+.estado-info {
+  background-color: color-mix(in srgb, #3b82f6 15%, transparent);
+  border: 1px solid #3b82f6;
+  color: #bfdbfe;
+}

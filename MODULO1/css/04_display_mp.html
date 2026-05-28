@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3er Semestre — Necrópolis Display Property</title>
+    <link rel="stylesheet" href="04_display_mp.css">
+</head>
+<body>
+
+    <h1>Mecánicas de Visibilidad: CSS Display</h1>
+    
+    <div class="alerta-neblina">⚠️ Advertencia: Alta concentración de espectros en el Sector Este</div>
+
+    <div class="insignia-gargola">Estado: Centinela</div>
+    <a href="#escapar" class="btn-refugio">Entrar al Refugio</a>
+
+    <button onclick="toggleCatacumbas()" class="btn-mecanismo">Accionar Palanca Secreta</button>
+    
+    <div id="cripta-oculta" class="pasadizo-subterraneo">
+        <ul>
+            <li><a href="#altar">Altar de Sacrificios</a></li>
+            <li><a href="#osario">Osario Oculto</a></li>
+            <li><a href="#salida">Túnel de Escape</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleCatacumbas() {
+            const cripta = document.getElementById('cripta-oculta');
+            cripta.classList.toggle('activo');
+        }
+    </script>
+</body>
+</html>

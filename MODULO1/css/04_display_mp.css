@@ -1,0 +1,119 @@
+/* ==========================================================================
+   AMBIENTACIÓN DE LA NEBRINA
+   ========================================================================== */
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #0c0e14; /* Sombra de medianoche */
+    padding: 30px;
+    color: #e2e8f0;
+}
+
+h1 {
+    color: #38bdf8; /* Brillo espectral azul */
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   1. COMPORTAMIENTO DE BLOQUE (display: block)
+   ========================================================================== */
+/* Como un pesado muro de piedra, un elemento 'block' colapsa todo el ancho 
+   disponible, obligando a cualquier elemento posterior a bajar a la fosa siguiente. */
+.alerta-neblina {
+    display: block; 
+    background-color: #2d1616; /* Alerta de sangre */
+    color: #f87171;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #991b1b;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   2. COMPORTAMIENTO EN LÍNEA BLOQUE (display: inline-block)
+   ========================================================================== */
+/* Permite que los nichos se posicionen uno al lado del otro en el mismo nivel 
+   horizontal, pero reteniendo el derecho divino de poseer un alto, ancho y relleno estricto. */
+.insignia-gargola {
+    display: inline-block;
+    background-color: #334155; /* Piedra gris */
+    color: #94a3b8;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid #475569;
+    border-radius: 2px;
+    margin-right: 12px;
+}
+
+.btn-refugio {
+    display: inline-block;
+    background-color: #065f46; /* Verde mausoleo */
+    color: #a7f3d0;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #047857;
+}
+
+.btn-refugio:hover {
+    background-color: #047857;
+    box-shadow: 0 0 8px #059669;
+}
+
+/* ==========================================================================
+   3. OCULTAMIENTO Y APARICIÓN (display: none vs display: block)
+   ========================================================================== */
+.btn-mecanismo {
+    display: block;
+    margin-top: 35px;
+    padding: 12px 24px;
+    background-color: #7c2d12; /* Óxido e hierro antiguo */
+    color: #ffedd5;
+    border: 1px solid #9a3412;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Estado Inicial: Clausurado y sellado. 'display: none' no solo vuelve invisible 
+   el pasadizo, sino que lo remueve por completo del espacio físico del layout. */
+.pasadizo-subterraneo {
+    display: none;
+    background-color: #11141d;
+    border: 1px dashed #4b5563;
+    padding: 15px;
+    width: 220px;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.pasadizo-subterraneo ul {
+    list-style: square;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.pasadizo-subterraneo li {
+    margin-bottom: 10px;
+}
+
+.pasadizo-subterraneo a {
+    text-decoration: none;
+    color: #cbd5e1;
+}
+
+.pasadizo-subterraneo a:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 5px #0284c7;
+}
+
+/* El Conjuro de Apertura: Invocado por JavaScript mediante classList.toggle() */
+.pasadizo-subterraneo.activo {
+    display: block; /* El pasadizo oculto se materializa en el flujo del documento */
+}

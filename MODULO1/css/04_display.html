@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>3er Semestre — Propiedad Display</title>
     <link rel="stylesheet" href="04_display.css">
 </head>
 <body>
-    <h1 style="color: rgb(42, 130, 165);">Display</h1>
+
+    <h1>CSS Display Property</h1>
+    
     <div class="banner-oferta">🔥 Oferta especial: 20% en laptops</div>
 
     <div class="etiqueta-nuevo">Nuevo Producto</div>
     <a href="#" class="btn-carrito">Ir al Carrito</a>
 
-    <button onclick="toggleMenu()">Menu</button>
+    <button onclick="toggleMenu()" class="btn-menu">Alternar Menú</button>
+    
     <div id="menu" class="menu-movil">
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Servicios</a></li>
             <li><a href="#">Contacto</a></li>
-    </div>
+        </ul> </div>
+
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CONFIGURACIÓN DEL CAMPOSANTO
+   ========================================================================== */
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #0b0d12; /* Tierra profunda */
+    padding: 30px;
+    color: #cbd5e1;
+}
+
+h1 {
+    color: #4db6ac; /* Fuego fatuo verdoso */
+    border-bottom: 2px solid #263238;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   PROPIEDADES DEL MODELO DE CAJA FUNERARIO
+   ========================================================================== */
+
+/* 1. Caja Base: El ataúd y su perímetro protector */
+.tumba-card {
+    width: 320px;
+    height: 120px;
+    background-color: #151922; /* Interior del nicho */
+    
+    /* Box Model Layers */
+    padding: 20px;           /* Relleno: Espacio de seda entre el cuerpo y las paredes de madera */
+    border: 6px solid #455a64; /* Borde: Las gruesas paredes de piedra del ataúd */
+    margin: 20px;            /* Margen: Tierra de seguridad entre esta tumba y la fosa contigua */
+}
+
+/* 2. Caja Direccional: Ajustando las dimensiones según el rito */
+.urna-card {
+    width: 250px;
+    background-color: #1e1e2f;
+    border: 3px double #9c27b0; /* Borde ceremonial morado */
+    
+    /* Relleno asimétrico (Padding) */
+    padding-top: 15px;      /* Espacio superior para flores */
+    padding-right: 40px;    /* Espacio derecho para los cirios */
+    padding-bottom: 15px;
+    padding-left: 20px;
+    
+    /* Distancia con otras parcelas (Margin) */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* 3. Modelo Tradicional: content-box (Peligro de desbordamiento de tierra)
+   El ancho final visible es la suma de: width + paddings + borders.
+   Cálculo real en pantalla: 320px + 40px (padding) + 12px (borde) = 372px de ancho total. 
+   La cripta termina expandiéndose más allá del espacio asignado originalmente. */
+.cripta1-card {
+    box-sizing: content-box; /* Comportamiento de las viejas dinastías */
+    width: 320px;
+    padding: 20px;
+    border: 6px solid #7f1d1d; /* Rojo sangre seca */
+    background-color: #2d1a1a;
+    margin: 20px;
+}
+
+/* 4. Modelo Moderno: border-box (Cripta de ingeniería perfecta)
+   El tamaño total queda rígidamente fijado en 320px. 
+   El espesor de las paredes de piedra (border) y el espacio de seda (padding) 
+   se comprimen HACIA ADENTRO. El espacio libre para el cuerpo se reduce automáticamente, 
+   pero la fosa jamás rompe las dimensiones de la parcela asignada. */
+.cripta2-card {
+    box-sizing: border-box; /* El estándar recomendado en la arquitectura actual */
+    width: 320px;
+    padding: 20px;
+    border: 6px solid #065f46; /* Verde musgo de panteón */
+    background-color: #064e3b;
+    margin: 20px;
+}

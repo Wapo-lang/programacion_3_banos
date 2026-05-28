@@ -1,0 +1,12 @@
+/* Pergamino Externo de Estilos */
+body {
+    background-color: #12141c; /* Noche cerrada */
+    color: #d1d5db; /* Gris ceniza */
+    font-family: 'Cinzel', 'Georgia', serif;
+    padding: 40px;
+}
+
+h1 {
+    font-family: monospace;
+    letter-spacing: -1px;
+}

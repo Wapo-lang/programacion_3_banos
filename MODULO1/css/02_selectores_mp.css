@@ -1,0 +1,121 @@
+/* ==========================================================================
+   1. SELECTOR UNIVERSAL (*)
+   ========================================================================== */
+/* Cae sobre absolutamente todas las almas (elementos) de la página */
+* {
+    font-family: 'Cinzel', 'Georgia', serif;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+/* Fondo de la noche eterna para el cuerpo del cementerio */
+body {
+    background-color: #0f1115;
+    padding: 30px;
+}
+
+/* ==========================================================================
+   2. SELECTORES BÁSICOS (Etiqueta, Clase e ID)
+   ========================================================================== */
+/* Selector de Etiqueta: Tiñe todos los subtítulos <h3> como fuego fatuo */
+h3 {
+    color: #00f0ff;
+    border-left: 4px solid #00a8b5;
+    padding-left: 10px;
+}
+
+/* Selector de Clase (.): Se usa para elementos con rasgos comunes (epitafios) */
+.epitafios {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Estilo para las tarjetas de las tumbas */
+.tumba-card {
+    background-color: #1a1d24;
+    border: 1px solid #334155;
+    padding: 20px;
+    border-radius: 4px;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.difunto-nombre {
+    color: #e2e8f0;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.cripta-estado {
+    color: #ef4444; /* Rojo advertencia */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* Selector de ID (#): Rigurosamente único. Nadie más puede usurpar este estilo. */
+#cripta-ancestral {
+    background-color: #2e1010; /* Sangre seca */
+    color: #fca5a5;
+    padding: 12px;
+    border: 1px double #7f1d1d;
+}
+
+/* ==========================================================================
+   3. SELECTORES COMBINADOS / COMBINATORS
+   ========================================================================== */
+/* Selector Descendiente (Espacio): CUALQUIER 'li' dentro de '.mausoleo-lista' 
+   sin importar qué tan profundo esté escondido en las listas anidadas. */
+.mausoleo-lista li {
+    color: #a78bfa; /* Morado eclesiástico */
+}
+
+/* Selector de Hijo Directo (>): Solo los enlaces 'a' que cuelguen DIRECTAMENTE 
+   de '.sendero-oscuro'. El enlace que está atrapado dentro del 'div' no se verá afectado. */
+.sendero-oscuro > a {
+    color: #10b981; /* Verde esmeralda místico */
+    text-decoration: underline;
+}
+
+/* Selector de Hermano Adyacente (+): El primer 'h5' que aparezca 
+   INMEDIATAMENTE después de un 'h4'. */
+h4 + h5 {
+    color: #f59e0b; /* Oro viejo */
+}
+
+/* Selector de Hermano General (~): Apunta a todos los 'h6' que compartan 
+   el mismo padre con 'h4', siempre que estén situados después de él. */
+h4 ~ h6 {
+    color: #64748b; /* Gris lápida gastada */
+}
+
+/* ==========================================================================
+   4. ESPECIFICIDAD EXTREMA
+   ========================================================================== */
+/* Intersección (Clase + Etiqueta): Solo se aplicará a los párrafos 'p' 
+   que tengan explícitamente la clase '.profanador'. */
+p.profanador {
+    color: #ffffff;
+    background-color: #7c2d12; /* Naranja quemado de peligro */
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Selector de atributo para dar estilos base a todas las clases de botones funerarios */
+[class^="btn-"] {
+    padding: 10px 20px;
+    border: 1px solid #475569;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-consagrar {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+}
+
+.btn-exhumar {
+    background-color: #451a03;
+    color: #fcd34d;
+}
