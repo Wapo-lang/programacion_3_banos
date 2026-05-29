@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3er Semestre — Alineación de Monumentos (Align Items)</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="10_flexbox_aling_mp.css">
+</head>
+
+<body>
+
+  <h1>Alineación en el Eje Secundario: align-items</h1>
+
+  <h2>1. stretch (Comportamiento por defecto: las lápidas se estiran al alto de la fosa)</h2>
+  <div class="cripta-boveda stretch">
+    <div class="monumento-item">1</div>
+    <div class="monumento-item">2</div>
+    <div class="monumento-item">3</div>
+  </div>
+
+  <h2>2. flex-start (Alineados al techo de la bóveda / Techo)</h2>
+  <div class="cripta-boveda inicio">
+    <div class="monumento-item item-alto-libre">1</div>
+    <div class="monumento-item item-alto-libre">2</div>
+    <div class="monumento-item item-alto-libre">3</div>
+  </div>
+
+  <h2>3. flex-end (Asentados firmemente en el suelo de la bóveda / Suelo)</h2>
+  <div class="cripta-boveda fin">
+    <div class="monumento-item item-alto-libre">1</div>
+    <div class="monumento-item item-alto-libre">2</div>
+    <div class="monumento-item item-alto-libre">3</div>
+  </div>
+
+  <h2>4. center (Levitando exactamente a la mitad de la altura de la fosa)</h2>
+  <div class="cripta-boveda centro">
+    <div class="monumento-item item-alto-libre">1</div>
+    <div class="monumento-item item-alto-libre">2</div>
+    <div class="monumento-item item-alto-libre">3</div>
+  </div>
+
+  <h2>5. baseline (Alineación basada en el renglón/base del epitafio interno)</h2>
+  <div class="cripta-boveda baseline">
+    <div class="monumento-item item-alto-libre fuente-chica">Piedra</div>
+    <div class="monumento-item item-alto-libre fuente-mediana">Epitafio</div>
+    <div class="monumento-item item-alto-libre fuente-grande">Mausoleo</div>
+  </div>
+
+</body>
+
+</html>
