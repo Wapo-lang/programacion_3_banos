@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")();
 
 const nombre = prompt("Escribe tu nombre: ");
-console.log(`Hola, ${nombre}!`);
+console.log(`Hola, ${nombre}!`, "Bienvenido al Cementerio Virtual.");
 
 const edadTexto = prompt("Escribe tu edad: ");
 const edad = parseInt(edadTexto, 10);
