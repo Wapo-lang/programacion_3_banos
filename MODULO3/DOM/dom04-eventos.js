@@ -14,4 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
         nuevoProducto.textContent = "Otro Producto";
         lista2.appendChild(nuevoProducto);
     });
+
+    document.getElementById('campo').addEventListener('input', function() {
+        console.log('Valor del campo: ' , document.getElementById('campo').value);
+    });
+
+    document.getElementById('campo_actualizar_parrafo').addEventListener('input', function() {
+        const valorCampo = document.getElementById('campo_actualizar_parrafo').value;
+        document.getElementById('parrafo').textContent = valorCampo;
+    }); 
 }); 
