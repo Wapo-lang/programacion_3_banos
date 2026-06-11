@@ -30,11 +30,13 @@ function renderProductos() {
             <td>${producto.descripcion}</td>
             <td>${producto.precio.toFixed(2)}</td>
             <td>
-                <button onclick="editarProducto(${producto.id})">Editar</button>      
+                <button onclick="editarProducto(${producto.id})">Editar</button>
+                <button onclick="eliminarProducto(${producto.id})">Eliminar</button>      
             </td>
         `;
         cuerpoTabla.appendChild(productoElement);
     });
+    actualizarEstadisticas();
 };
 
 function agregarProducto() {
@@ -116,6 +118,36 @@ function cancelarEdicion() {
     agregarbtn.removeEventListener("click", actualizarProducto);
     agregarbtn.addEventListener("click", agregarProducto);
     idEditar = null;
+};
+
+function eliminarProducto(id) {
+    const index = productos.findIndex(p => p.id === id);
+    if (index !== -1) {
+        if(confirm("¿Está seguro de que desea eliminar este producto?")) {
+            productos.splice(index, 1);
+            renderProductos();
+        }  
+    }
+};
+
+function actualizarEstadisticas() {
+    const totalProductos = productos.length;
+    let precioPromedio = 0;
+    if (totalProductos > 0) {
+        precioPromedio = (productos.reduce((sum, p) => sum + p.precio, 0) / totalProductos).toFixed(2);
+    }
+    document.getElementById('totalProductos')
+        .textContent = totalProductos;
+    document.getElementById('precioPromedio')
+        .textContent = precioPromedio;
+    const productoMasCaro = productos.length > 0 ?
+        Math.max(...productos.map(p => p.precio)) : 0;
+    const productoMasBarato = productos.length > 0 ?
+        Math.min(...productos.map(p => p.precio)) : 0;
+    document.getElementById('productoMasCaro')
+        .textContent = productoMasCaro;
+    document.getElementById('productoMasBarato')
+        .textContent = productoMasBarato;
 };
 
 window.onload = function() {

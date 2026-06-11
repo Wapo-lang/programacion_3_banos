@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area de un Triángulo</title>
-    <script src="dom12-crud.js" defer></script>
+    <script src="dom13-crud_trabajo.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -94,40 +94,23 @@
 </head>
 <body>
     <h1>Eventos de DOM</h1>
-    <h2>Crud de Productos</h2>
-    <div id="stats">
-        <div class="stat-card">
-            <h3>Total Productos</h3>
-            <p id="totalProductos">0</p>
-        </div>
-        <div class="stat-card">
-            <h3>Precio Promedio</h3>
-            <p id="precioPromedio">0</p>
-        </div>
-         <div class="stat-card">
-            <h3>Producto Más Caro</h3>
-            <p id="productoMasCaro">N/A</p>
-        </div>
-         <div class="stat-card">
-            <h3>Producto Más Barato</h3>
-            <p id="productoMasBarato">N/A</p>
-        </div>
-    </div>
+    <h2>Crud de Empleados</h2>
+    
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" placeholder="Nombre del producto">
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" placeholder="Descripción del producto">
-    <label for="precio">Precio:</label>
-    <input type="number" id="precio" placeholder="Precio del producto">
-    <button id="btnAgregar" class="btn-agregar">Agregar Producto</button>
+    <input type="text" id="nombre" placeholder="Nombre del empleado">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" placeholder="Apellido del empleado">
+    <label for="salario">Salario:</label>
+    <input type="number" id="salario" placeholder="Salario del empleado">
+    <button id="btnAgregar" class="btn-agregar">Agregar Empleado</button>
     <button id="btnCancelar" class="btn-cancelar" >Cancelar</button>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
+                <th>Apellido</th>
+                <th>Salario</th>
                 <th>Acciones</th>
             </tr>
         </thead>
