@@ -1,28 +1,26 @@
-// src/components/ProductCatalogList.tsx
-
-interface Product {
+interface PetList {
   id: number
   name: string
+  type: string
+  age: number
   price: number
-  outOfStock?: boolean
-  category: string
 }
 
-interface ProductCatalogListProps {
-  products: Product[]
+interface TiendaDeMascotasProps {
+  products: PetList[]
   title?: string
 }
 
-export default function ProductCatalogList({
+export default function TiendaDeMascotas({
   products,
-  title = 'Catálogo',
-}: ProductCatalogListProps) {
+  title = 'Tienda de Mascotas',
+}: TiendaDeMascotasProps) {
   return (
     <section>
       <h2 style={{ marginBottom: 16 }}>{title}</h2>
 
       {products.length === 0 && (
-        <p style={{ color: '#999' }}>No hay productos disponibles.</p>
+        <p style={{ color: '#999' }}>No hay mascotas disponibles.</p>
       )}
 
       <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -34,19 +32,16 @@ export default function ProductCatalogList({
               justifyContent: 'space-between',
               padding: '10px 0',
               borderBottom: '1px solid #eee',
-              opacity: product.outOfStock ? 0.4 : 1,
             }}
           >
             <span>
               {product.name}
-              {product.outOfStock && (
-                <em style={{ marginLeft: 8, fontSize: 12, color: '#e00' }}>
-                  Agotado
-                </em>
-              )}
               <em>
-                {product.category}
+                {product.type}
               </em>
+              <span style={{ marginLeft: 8 }}>
+                Edad: {product.age}
+              </span>
             </span>
             <strong>${product.price.toFixed(2)}</strong>
           </li>
