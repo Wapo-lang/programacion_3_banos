@@ -1,14 +1,15 @@
-// Segundo ejemplo: Círculo arrastrable y cambio de color
+// Segundo ejemplo: Orbe espectral arrastrable y cambio de color místico
 const circulo = document.getElementById('circulo');
-let colores = ['red', 'green', 'blue', 'orange', 'purple', 'pink'];
+let colores = ['#ef4444', '#10b981', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899']; // Tonos tétricos y brillantes
 let colorActual = 0;
 
 let arrastrando = false;
 
-// Cambiar color
+// Cambiar color espectral
 function cambiarColor() {
    colorActual = (colorActual + 1) % colores.length;
    circulo.style.background = colores[colorActual];
+   circulo.style.boxShadow = `0 0 20px ${colores[colorActual]}`;
 }
 
 // Mover el círculo al punto (centrado)

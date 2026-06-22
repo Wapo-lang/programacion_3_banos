@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Manipulación de DOM </title>
-    <script src="dom07-mouse-touch.js" defer></script>
+    <title>Cementerio del DOM - Interacción Espectral</title>
+    <script src="dom07-mouse-touch_mp.js" defer></script>
     <style>
+        body {
+            background-color: #0b0f19;
+            color: #d1d5db;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+        }
+        h1 {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+        h2 {
+            color: #34d399;
+        }
         .boton {
-            background-color: red;
-            border: none;
+            background-color: #7f1d1d;
+            border: 1px solid #ef4444;
             border-radius: 5px;
             color: white;
-            padding: 0%.5em 1em;
+            padding: 0.5em 1em;
             cursor: pointer;
+            font-weight: bold;
+        }
+        .boton:hover {
+            background-color: #991b1b;
         }
     </style>
 </head>
 
 <body>
 
-    <h1 id="titulo"> Eventos en el DOM </h1>
-    <h2> Evento Mouse Touch </h2>
+    <h1 id="titulo"> Espectros y Eventos en el DOM 🪦</h1>
+    <h2> Evento Mouse Touch en la Cripta 🕯️</h2>
     <!-- Tercer ejemplo -->
-    <h2> Evento Mouse Enter y Mouse Leave </h2>
+    <h2> Evento Mouse Enter y Mouse Leave en el Mausoleo 👻</h2>
     <div style="margin-top:20px;">
         <button id="botonAnimado" style="padding:10px 20px; 
         font-size:18px; 
-        transition: all 0.3s;">¡Tócame o pasa el mouse!
+        transition: all 0.3s;
+        background-color: #1f2937;
+        color: #f3f4f6;
+        border: 2px solid #4b5563;
+        border-radius: 8px;
+        cursor: pointer;">¡Perturba la lápida o pasa el mouse!
         </button>
     </div>
 

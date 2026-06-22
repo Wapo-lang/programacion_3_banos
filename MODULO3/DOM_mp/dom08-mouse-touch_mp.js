@@ -1,11 +1,9 @@
-// Evento Mouse
 const triangulo = document.getElementById('triangulo');
 let isDragging = false;
 let startX = 0;
 let scaleValue = 1;
 
 
-// Función para actualizar tamaño
 function updateScale(newX) {
    const diffX = newX - startX;
    scaleValue += diffX * 0.005; // Ajusta sensibilidad aquí

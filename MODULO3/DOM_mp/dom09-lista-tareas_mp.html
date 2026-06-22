@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Manipulación de DOM </title>
-    <script src="dom09-lista-tareas.js" defer></script>
+    <title>Cementerio del DOM - Registro de Almas</title>
+    <script src="dom09-lista-tareas_mp.js" defer></script>
     <style>
         .boton {
-            background-color: gray;
+            background-color: #4b5563;
             border: none;
             border-radius: 5px;
             color: white;
-            padding: 0%.5em 1em;
+            padding: 0.5em 1em;
             cursor: pointer;
         }
     </style>
 </head>
 
-<body>
+<body style="background-color: #0b0f19; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px;">
 
-    <h1 id="titulo"> Eventos en el DOM </h1>
-    <h2> Lista de Tareas </h2>
+    <h1 id="titulo" style="color: #a78bfa; text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);"> Registro Espectral en el DOM 🪦</h1>
+    <h2 style="color: #34d399;"> Registro de Almas en Pena (Lista de Tareas) 👻</h2>
 
     <input id="campo_tarea" 
-        type= "text"
-        placeholder="Escribe una tarea...">
-    <button id="btn_agregar" class="boton"> 
-        Agregar Tarea </button>
-    <ul id="lista_tareas"></ul>
+        type="text"
+        placeholder="Escribe el nombre del alma en pena..."
+        style="background-color: #131c2e; border: 1px solid #374151; color: white; padding: 8px; border-radius: 6px; width: 250px; margin-right: 5px;">
+    
+    <button id="btn_agregar" class="boton" style="background-color: #7c3aed; font-weight: bold;"> 
+        Registrar Alma </button>
+    
+    <ul id="lista_tareas" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
 
 </body>
 
