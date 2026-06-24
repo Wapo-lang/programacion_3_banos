@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area de un Triángulo</title>
-    <script src="dom11-area_triangulo.js" defer></script>
+    <title>Cementerio del DOM - Reliquia Triangular</title>
+    <script src="dom11-area_triangulo_mp.js" defer></script>
+    <style>
+        .boton {
+            background-color: #7c3aed;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .boton:hover {
+            background-color: #6d28d9;
+        }
+        input[type="number"] {
+            background-color: #131c2e;
+            border: 1px solid #374151;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            width: 150px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
-<body>
-    <h1>Calculadora de Área de un Triángulo</h1>
-    <h2>Area de un Triangulo</h2>
+<body style="background-color: #0b0f19; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px;">
+    <h1 style="color: #a78bfa; text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);">Calculadora Espectral de Área 🪦</h1>
+    <h2 style="color: #34d399;">Área de la Reliquia Triangular 🕯️</h2>
 
-    <input id="campo1" type="number" placeholder="Base">
-    <input id="campo2" type="number" placeholder="Altura">
+    <input id="campo1" type="number" placeholder="Base espectral">
+    <input id="campo2" type="number" placeholder="Altura de la cripta">
     <button id="calcular" class="boton">Calcular Área</button>
 
-    <p id="resultado"></p>
+    <p id="resultado" style="margin-top: 20px; font-weight: bold; color: #34d399;"></p>
     
 </body>
 </html>
