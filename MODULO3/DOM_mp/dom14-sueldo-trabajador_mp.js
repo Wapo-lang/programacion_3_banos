@@ -1,90 +1,79 @@
-// dom12-sueldo-trabajador.js
-// Asignaciones : sueldo base + bono por antigüedad
-// Deducciones  : aporte IESS (% del sueldo base) + descuento préstamo
-
-
-function fmt(valor) {
-   return '$ ' + valor.toFixed(2);
-}
-
+// Lógica para el Cálculo de Sueldo y Rol de Pagos
 
 function calcularSueldo() {
-   const sueldoBase  = parseFloat(document.getElementById('inSueldoBase').value);
-   const bono        = parseFloat(document.getElementById('inBonoAntigüedad').value);
-   const porcentajeIESS = parseFloat(document.getElementById('inIESS').value);
-   const prestamo    = parseFloat(document.getElementById('inPrestamo').value);
+    // Capturar elementos del DOM
+    const inSueldoBase = document.getElementById('inSueldoBase');
+    const inBonoAntiguedad = document.getElementById('inBonoAntigüedad');
+    const inIESS = document.getElementById('inIESS');
+    const inPrestamo = document.getElementById('inPrestamo');
+    
+    const divError = document.getElementById('error');
+    const divResultado = document.getElementById('resultado');
 
+    // Obtener valores numéricos (si están vacíos, se asume 0 por defecto)
+    const sueldoBase = parseFloat(inSueldoBase.value) || 0;
+    const bonoAntiguedad = parseFloat(inBonoAntiguedad.value) || 0;
+    const porcentajeIESS = parseFloat(inIESS.value) || 0;
+    const prestamo = parseFloat(inPrestamo.value) || 0;
 
-   const divError     = document.getElementById('error');
-   const divResultado = document.getElementById('resultado');
+    // Validaciones
+    if (sueldoBase <= 0) {
+        mostrarError("Por favor, ingrese un sueldo base válido mayor a 0.");
+        return;
+    }
 
+    if (porcentajeIESS < 0 || porcentajeIESS > 100) {
+        mostrarError("El porcentaje del IESS debe estar entre 0% y 100%.");
+        return;
+    }
 
-   divError.style.display     = 'none';
-   divResultado.style.display = 'none';
+    if (bonoAntiguedad < 0 || prestamo < 0) {
+        mostrarError("Los valores de bonos y préstamos no pueden ser negativos.");
+        return;
+    }
 
+    // Ocultar error si todo es correcto
+    divError.style.display = 'none';
 
-   // Validación de campos obligatorios
-   if (isNaN(sueldoBase) || sueldoBase <= 0) {
-       divError.textContent   = 'Ingresa un sueldo base válido (mayor que cero).';
-       divError.style.display = 'block';
-       return;
-   }
+    // Realizar cálculos
+    const totalIngresos = sueldoBase + bonoAntiguedad;
+    const montoIESS = (sueldoBase * porcentajeIESS) / 100;
+    const totalDeducciones = montoIESS + prestamo;
+    const sueldoNeto = totalIngresos - totalDeducciones;
 
+    // Rellenar datos en el rol de pagos
+    document.getElementById('rSueldoBase').textContent = `$${sueldoBase.toFixed(2)}`;
+    document.getElementById('rBono').textContent = `$${bonoAntiguedad.toFixed(2)}`;
+    document.getElementById('rTotalIngresos').textContent = `$${totalIngresos.toFixed(2)}`;
+    
+    document.getElementById('rPorcentajeIESS').textContent = porcentajeIESS;
+    document.getElementById('rIESS').textContent = `-$${montoIESS.toFixed(2)}`;
+    document.getElementById('rPrestamo').textContent = `-$${prestamo.toFixed(2)}`;
+    document.getElementById('rTotalDeducciones').textContent = `-$${totalDeducciones.toFixed(2)}`;
+    
+    document.getElementById('rSueldoNeto').textContent = `$${sueldoNeto.toFixed(2)}`;
 
-   if (isNaN(porcentajeIESS) || porcentajeIESS < 0 || porcentajeIESS > 100) {
-       divError.textContent   = 'El porcentaje del IESS debe estar entre 0 y 100.';
-       divError.style.display = 'block';
-       return;
-   }
-
-
-   // Valores opcionales: si están vacíos se toman como 0
-   const bonoVal    = isNaN(bono)     ? 0 : Math.max(0, bono);
-   const prestamoVal = isNaN(prestamo) ? 0 : Math.max(0, prestamo);
-
-
-   // Cálculos
-   const totalIngresos    = sueldoBase + bonoVal;
-   const deduccionIESS    = sueldoBase * (porcentajeIESS / 100);
-   const totalDeducciones = deduccionIESS + prestamoVal;
-   const sueldoNeto       = totalIngresos - totalDeducciones;
-
-
-   // Llenar rol de pagos
-   document.getElementById('rSueldoBase').textContent    = fmt(sueldoBase);
-   document.getElementById('rBono').textContent          = fmt(bonoVal);
-   document.getElementById('rTotalIngresos').textContent = fmt(totalIngresos);
-   document.getElementById('rPorcentajeIESS').textContent = porcentajeIESS.toFixed(2);
-   document.getElementById('rIESS').textContent          = '- ' + fmt(deduccionIESS);
-   document.getElementById('rPrestamo').textContent      = '- ' + fmt(prestamoVal);
-   document.getElementById('rTotalDeducciones').textContent = '- ' + fmt(totalDeducciones);
-
-
-   const spanNeto = document.getElementById('rSueldoNeto');
-   spanNeto.textContent = fmt(sueldoNeto);
-   spanNeto.style.color = sueldoNeto >= 0 ? '#1e8449' : '#c0392b';
-
-
-   divResultado.style.display = 'block';
+    // Mostrar el contenedor de resultados
+    divResultado.style.display = 'block';
 }
 
+function mostrarError(mensaje) {
+    const divError = document.getElementById('error');
+    const divResultado = document.getElementById('resultado');
+    
+    divError.textContent = mensaje;
+    divError.style.display = 'block';
+    divResultado.style.display = 'none';
+}
 
 function limpiar() {
-   ['inSueldoBase', 'inBonoAntigüedad', 'inPrestamo'].forEach(id => {
-       document.getElementById(id).value = '';
-   });
-   document.getElementById('inIESS').value = '9.45';
-   document.getElementById('error').style.display     = 'none';
-   document.getElementById('resultado').style.display = 'none';
-   document.getElementById('inSueldoBase').focus();
+    // Limpiar campos de entrada
+    document.getElementById('inSueldoBase').value = '';
+    document.getElementById('inBonoAntigüedad').value = '';
+    document.getElementById('inIESS').value = '9.45';
+    document.getElementById('inPrestamo').value = '';
+
+    // Ocultar errores y resultados
+    document.getElementById('error').style.display = 'none';
+    document.getElementById('resultado').style.display = 'none';
 }
-
-
-// Enter en cualquier campo dispara el cálculo
-window.onload = () => {
-   ['inSueldoBase', 'inBonoAntigüedad', 'inIESS', 'inPrestamo'].forEach(id => {
-       document.getElementById(id).addEventListener('keydown', e => {
-           if (e.key === 'Enter') calcularSueldo();
-       });
-   });
-};

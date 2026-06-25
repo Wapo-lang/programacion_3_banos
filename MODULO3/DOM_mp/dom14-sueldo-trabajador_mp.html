@@ -3,195 +3,175 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Cálculo de Sueldo</title>
+   <title>Cementerio del DOM - Cálculo de Ofrenda y Sueldo Espectral</title>
    <style>
-       body {
-           font-family: Arial, sans-serif;
-           margin: 40px;
-           background-color: #f5f7fa;
-       }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #0b0f19;
+            color: #d1d5db;
+        }
 
+        h2 {
+            color: #a78bfa;
+            border-bottom: 2px solid #34d399;
+            padding-bottom: 6px;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
 
-       h2 {
-           color: #2c3e50;
-           border-bottom: 2px solid #27ae60;
-           padding-bottom: 6px;
-       }
+        .card {
+            background: #131c2e;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 480px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
 
+        .seccion-titulo {
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 18px 0 10px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
 
-       .card {
-           background: white;
-           border: 1px solid #dde3ea;
-           border-radius: 8px;
-           padding: 24px;
-           max-width: 480px;
-           box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-       }
+        .titulo-asignacion { background: #064e3b; color: #34d399; }
+        .titulo-deduccion  { background: #7f1d1d; color: #fca5a5; }
 
+        .campo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
 
-       .seccion-titulo {
-           font-size: 13px;
-           font-weight: bold;
-           text-transform: uppercase;
-           letter-spacing: 0.5px;
-           margin: 18px 0 10px;
-           padding: 4px 10px;
-           border-radius: 4px;
-       }
+        .campo label {
+            width: 200px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
 
+        .campo input {
+            flex: 1;
+            padding: 7px 10px;
+            border: 1px solid #374151;
+            background-color: #0b0f19;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
 
-       .titulo-asignacion { background: #eafaf1; color: #1e8449; }
-       .titulo-deduccion  { background: #fdecea; color: #c0392b; }
+        .campo input:focus {
+            outline: none;
+            border-color: #34d399;
+            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2);
+        }
 
+        .campo .prefijo {
+            margin-right: 6px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
 
-       .campo {
-           display: flex;
-           align-items: center;
-           margin-bottom: 12px;
-       }
+        .campo .nota {
+            margin-left: 8px;
+            color: #9ca3af;
+            font-size: 12px;
+        }
 
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-       .campo label {
-           width: 200px;
-           font-size: 14px;
-           color: #34495e;
-       }
+        button {
+            padding: 9px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
+        .btn-calcular {
+            background-color: #7c3aed;
+            color: white;
+            flex: 1;
+        }
+        .btn-calcular:hover { background-color: #6d28d9; }
 
-       .campo input {
-           flex: 1;
-           padding: 7px 10px;
-           border: 1px solid #aaa;
-           border-radius: 4px;
-           font-size: 14px;
-       }
+        .btn-limpiar {
+            background-color: #374151;
+            color: #d1d5db;
+        }
+        .btn-limpiar:hover { background-color: #4b5563; }
 
+        .error {
+            display: none;
+            background: #7f1d1d;
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: 14px;
+        }
 
-       .campo input:focus {
-           outline: none;
-           border-color: #27ae60;
-           box-shadow: 0 0 0 2px rgba(39,174,96,0.2);
-       }
+        /* Resultado */
+        .resultado {
+            display: none;
+            background: #131c2e;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            max-width: 480px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
 
+        .resultado h3 {
+            margin: 0 0 14px;
+            color: #a78bfa;
+            font-size: 15px;
+        }
 
-       .campo .prefijo {
-           margin-right: 6px;
-           color: #555;
-           font-size: 14px;
-       }
+        .fila-rol {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #374151;
+            color: #9ca3af;
+        }
 
+        .fila-rol:last-child { border-bottom: none; }
 
-       .campo .nota {
-           margin-left: 8px;
-           color: #888;
-           font-size: 12px;
-       }
+        .fila-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 0 0;
+            margin-top: 8px;
+            border-top: 2px solid #a78bfa;
+            color: #34d399;
+        }
 
-
-       .botones {
-           display: flex;
-           gap: 10px;
-           margin-top: 20px;
-       }
-
-
-       button {
-           padding: 9px 24px;
-           border: none;
-           border-radius: 4px;
-           font-size: 14px;
-           cursor: pointer;
-       }
-
-
-       .btn-calcular {
-           background-color: #27ae60;
-           color: white;
-           flex: 1;
-       }
-       .btn-calcular:hover { background-color: #1e8449; }
-
-
-       .btn-limpiar {
-           background-color: #95a5a6;
-           color: white;
-       }
-       .btn-limpiar:hover { background-color: #7f8c8d; }
-
-
-       .error {
-           display: none;
-           background: #fdecea;
-           border: 1px solid #e74c3c;
-           color: #c0392b;
-           padding: 10px 14px;
-           border-radius: 6px;
-           margin-top: 14px;
-           font-size: 14px;
-       }
-
-
-       /* Resultado */
-       .resultado {
-           display: none;
-           background: white;
-           border: 1px solid #dde3ea;
-           border-radius: 8px;
-           padding: 20px 24px;
-           margin-top: 20px;
-           max-width: 480px;
-           box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-       }
-
-
-       .resultado h3 {
-           margin: 0 0 14px;
-           color: #2c3e50;
-           font-size: 15px;
-       }
-
-
-       .fila-rol {
-           display: flex;
-           justify-content: space-between;
-           font-size: 14px;
-           padding: 5px 0;
-           border-bottom: 1px dashed #eee;
-           color: #555;
-       }
-
-
-       .fila-rol:last-child { border-bottom: none; }
-
-
-       .fila-total {
-           display: flex;
-           justify-content: space-between;
-           font-size: 16px;
-           font-weight: bold;
-           padding: 10px 0 0;
-           margin-top: 8px;
-           border-top: 2px solid #2c3e50;
-           color: #2c3e50;
-       }
-
-
-       .monto-verde { color: #1e8449; }
-       .monto-rojo  { color: #c0392b; }
+        .monto-verde { color: #34d399; }
+        .monto-rojo  { color: #fca5a5; }
    </style>
 </head>
 <body>
 
-
-   <h2>Cálculo de Sueldo del Trabajador</h2>
-
+   <h2>Cálculo Espectral de Ofrendas y Sueldos 🪦</h2>
 
    <div class="card">
 
-
        <!-- Asignaciones -->
-       <div class="seccion-titulo titulo-asignacion">Asignaciones (ingresos)</div>
-
+       <div class="seccion-titulo titulo-asignacion">Asignaciones (Tributos)</div>
 
        <div class="campo">
            <label for="inSueldoBase">Sueldo base:</label>
@@ -199,17 +179,14 @@
            <input type="number" id="inSueldoBase" placeholder="Ej: 600" min="0" step="0.01">
        </div>
 
-
        <div class="campo">
            <label for="inBonoAntigüedad">Bono por antigüedad:</label>
            <span class="prefijo">$</span>
            <input type="number" id="inBonoAntigüedad" placeholder="Ej: 50" min="0" step="0.01">
        </div>
 
-
        <!-- Deducciones -->
-       <div class="seccion-titulo titulo-deduccion">Deducciones (descuentos)</div>
-
+       <div class="seccion-titulo titulo-deduccion">Deducciones (Tributos oscuros)</div>
 
        <div class="campo">
            <label for="inIESS">Aporte IESS:</label>
@@ -218,28 +195,23 @@
            <span class="nota">del sueldo base</span>
        </div>
 
-
        <div class="campo">
            <label for="inPrestamo">Descuento préstamo:</label>
            <span class="prefijo">$</span>
            <input type="number" id="inPrestamo" placeholder="Ej: 30" min="0" step="0.01">
        </div>
 
-
        <div class="botones">
            <button class="btn-calcular" onclick="calcularSueldo()">Calcular sueldo</button>
            <button class="btn-limpiar"  onclick="limpiar()">Limpiar</button>
        </div>
 
-
        <div class="error" id="error"></div>
    </div>
 
-
    <!-- Rol de pagos -->
    <div class="resultado" id="resultado">
-       <h3>Rol de Pagos</h3>
-
+       <h3>Rol de Pagos de la Cripta</h3>
 
        <div class="fila-rol">
            <span>Sueldo base</span>
@@ -266,14 +238,12 @@
            <span class="monto-rojo" id="rTotalDeducciones"></span>
        </div>
 
-
        <div class="fila-total">
            <span>SUELDO NETO A RECIBIR</span>
            <span id="rSueldoNeto"></span>
        </div>
    </div>
 
-
-   <script src="dom14-sueldo-trabajador.js"></script>
+   <script src="dom14-sueldo-trabajador_mp.js"></script>
 </body>
 </html>
