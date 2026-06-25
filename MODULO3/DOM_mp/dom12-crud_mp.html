@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area de un Triángulo</title>
-    <script src="dom12-crud.js" defer></script>
+    <title>Cementerio del DOM - CRUD de Reliquias</title>
+    <script src="dom12-crud_mp.js" defer></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #0b0f19;
+            color: #d1d5db;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 20px;
             max-width: 1280px;
             line-height: 1.5;
         }
+        h1 {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
         h2 {
-            color: #333;
+            color: #34d399;
             margin-bottom: 18px;
         }
         #stats {
@@ -28,19 +34,23 @@
             margin-top: 28px;
         }
         th, td {
-            border: 1px solid #ccc;
+            border: 1px solid #374151;
             padding: 10px;
             text-align: left;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #131c2e;
+            color: #34d399;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #0f172a;
+        }
+        tr:nth-child(odd) {
+            background-color: #0b0f19;
         }
         .formulario {
-            background-color: #f4f4f4;
-            border: 1px solid #b0fce8;
+            background-color: #131c2e;
+            border: 1px solid #7c3aed;
             padding: 20px;
             margin-top: 20px;
         }
@@ -50,34 +60,31 @@
             width: 100%;
             box-sizing: border-box;
         }
-        .formulario input{
-            width: auto;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-        }
         .btn-agregar:hover {
-            background-color: #4CAF50;
+            background-color: #059669 !important;
             color: white;
         }
         .btn-cancelar:hover {
-            background-color: #f44336;
+            background-color: #dc2626 !important;
             color: white;
         }
-        .stat-card {
-            background-color: #f4f4f4;
-            border: 1px solid #b0fce8;
+        .stat-card, .stats-card {
+            background-color: #131c2e;
+            border: 1px solid #374151;
             padding: 20px;
             flex: 1 1 220px;
             box-sizing: border-box;
+            border-radius: 8px;
         }
-        .stats-card h3 {
+        .stat-card h3, .stats-card h3 {
             margin-top: 0;
-            color: #333;
+            color: #a78bfa;
         }
         label {
             display: block;
             margin-top: 12px;
             margin-bottom: 6px;
+            color: #34d399;
         }
         input {
             display: block;
@@ -85,49 +92,66 @@
             padding: 8px;
             margin-bottom: 14px;
             box-sizing: border-box;
+            background-color: #131c2e;
+            border: 1px solid #374151;
+            color: white;
+            border-radius: 6px;
         }
         button {
             margin-right: 8px;
             margin-top: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        #btnAgregar {
+            background-color: #7c3aed;
+            color: white;
+        }
+        #btnCancelar {
+            background-color: #374151;
+            color: #d1d5db;
         }
     </style>
 </head>
 <body>
-    <h1>Eventos de DOM</h1>
-    <h2>Crud de Productos</h2>
+    <h1>Espectros y Registro en el DOM 🪦</h1>
+    <h2>CRUD de Almas y Reliquias en la Cripta 🕯️</h2>
     <div id="stats">
         <div class="stat-card">
-            <h3>Total Productos</h3>
+            <h3>Total de Reliquias</h3>
             <p id="totalProductos">0</p>
         </div>
         <div class="stat-card">
-            <h3>Precio Promedio</h3>
+            <h3>Tributo Promedio</h3>
             <p id="precioPromedio">0</p>
         </div>
          <div class="stat-card">
-            <h3>Producto Más Caro</h3>
+            <h3>Reliquia Más Valiosa</h3>
             <p id="productoMasCaro">N/A</p>
         </div>
          <div class="stat-card">
-            <h3>Producto Más Barato</h3>
+            <h3>Reliquia Más Sencilla</h3>
             <p id="productoMasBarato">N/A</p>
         </div>
     </div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" placeholder="Nombre del producto">
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" placeholder="Descripción del producto">
-    <label for="precio">Precio:</label>
-    <input type="number" id="precio" placeholder="Precio del producto">
-    <button id="btnAgregar" class="btn-agregar">Agregar Producto</button>
-    <button id="btnCancelar" class="btn-cancelar" >Cancelar</button>
+    <label for="nombre">Nombre de la Reliquia:</label>
+    <input type="text" id="nombre" placeholder="Ej. Cáliz maldito">
+    <label for="descripcion">Descripción de la Cripta:</label>
+    <input type="text" id="descripcion" placeholder="Ej. Pertenece al siglo pasado">
+    <label for="precio">Tributo (Precio):</label>
+    <input type="number" id="precio" placeholder="Ej. 100">
+    <button id="btnAgregar" class="btn-agregar">Registrar Reliquia</button>
+    <button id="btnCancelar" class="btn-cancelar">Cancelar</button>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
-                <th>Precio</th>
+                <th>Tributo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -135,6 +159,5 @@
         </tbody>
     </table>
 
-    
 </body>
 </html>

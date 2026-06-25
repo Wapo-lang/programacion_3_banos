@@ -1,21 +1,22 @@
+// Inventario de Reliquias y Almas en la Cripta (CRUD de Productos)
 const productos = [
 { 
     id: 1,
-    nombre: "Teclado",
-    descripcion: "Teclado mecánico con retroiluminación RGB", 
-    precio: 10 
+    nombre: "Cáliz Maldito",
+    descripcion: "Cáliz de plata oscura con inscripciones prohibidas", 
+    precio: 150 
 },
 { 
     id: 2, 
-    nombre: "Mouse", 
-    descripcion: "Mouse óptico con sensor de alta precisión",
-    precio: 20 
+    nombre: "Tome Espectral", 
+    descripcion: "Libro de hechizos encuadernado en pergamino antiguo",
+    precio: 300 
 },
 { 
     id: 3, 
-    nombre: "Monitor", 
-    descripcion: "Monitor de 24 pulgadas con resolución Full HD",
-    precio: 30 
+    nombre: "Orbe de la Cripta", 
+    descripcion: "Esfera de cristal que brilla en la oscuridad total",
+    precio: 450 
 }
 ];
 
@@ -28,10 +29,10 @@ function renderProductos() {
             <td>${producto.id}</td>
             <td>${producto.nombre}</td>
             <td>${producto.descripcion}</td>
-            <td>${producto.precio.toFixed(2)}</td>
+            <td>🪙 ${producto.precio.toFixed(2)}</td>
             <td>
-                <button onclick="editarProducto(${producto.id})">Editar</button>
-                <button onclick="eliminarProducto(${producto.id})">Eliminar</button>      
+                <button onclick="editarProducto(${producto.id})" style="background-color: #4c1d95; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Editar</button>
+                <button onclick="eliminarProducto(${producto.id})" style="background-color: #7f1d1d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button>      
             </td>
         `;
         cuerpoTabla.appendChild(productoElement);
@@ -45,12 +46,12 @@ function agregarProducto() {
     const precioInput = document.getElementById("precio").value.trim();
 
     if (!nombreInput || !descripcionInput || !precioInput) {
-        alert("Por favor, complete todos los campos.");
+        alert("👻 Por favor, complete todos los campos de la cripta.");
         return;
     }
 
     const nuevoProducto = {
-        id: productos.length + 1,
+        id: productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1,
         nombre: nombreInput,
         descripcion: descripcionInput,
         precio: parseFloat(precioInput)
@@ -58,7 +59,6 @@ function agregarProducto() {
 
     productos.push(nuevoProducto);
     renderProductos();
-
     limpiarFormulario();
 };
 
@@ -79,7 +79,8 @@ function editarProducto(id) {
         document.getElementById("descripcion").value = producto.descripcion;
         document.getElementById("precio").value = producto.precio;
         idEditar = id;
-        agregarbtn.textContent = "Actualizar Producto";
+        agregarbtn.textContent = "Actualizar Reliquia";
+        agregarbtn.style.backgroundColor = "#d97706";
         agregarbtn.removeEventListener("click", agregarProducto);
         agregarbtn.addEventListener("click", actualizarProducto);
     }
@@ -91,7 +92,7 @@ function actualizarProducto() {
     const precioInput = document.getElementById("precio").value.trim();
 
     if (!nombreInput || !descripcionInput || !precioInput) {
-        alert("Por favor, complete todos los campos.");
+        alert("👻 Por favor, complete todos los campos de la cripta.");
         return;
     }
 
@@ -105,7 +106,8 @@ function actualizarProducto() {
         };
         renderProductos();
         limpiarFormulario();
-        agregarbtn.textContent = "Agregar Producto";
+        agregarbtn.textContent = "Registrar Reliquia";
+        agregarbtn.style.backgroundColor = "#7c3aed";
         agregarbtn.removeEventListener("click", actualizarProducto);
         agregarbtn.addEventListener("click", agregarProducto);
         idEditar = null;
@@ -114,16 +116,20 @@ function actualizarProducto() {
 
 function cancelarEdicion() {
     limpiarFormulario();
-    agregarbtn.textContent = "Agregar Producto";
+    agregarbtn.textContent = "Registrar Reliquia";
+    agregarbtn.style.backgroundColor = "#7c3aed";
     agregarbtn.removeEventListener("click", actualizarProducto);
     agregarbtn.addEventListener("click", agregarProducto);
     idEditar = null;
 };
 
+// Vinculación opcional del botón cancelar con la función de cancelar edición si se requiere
+document.getElementById("btnCancelar").addEventListener("click", cancelarEdicion);
+
 function eliminarProducto(id) {
     const index = productos.findIndex(p => p.id === id);
     if (index !== -1) {
-        if(confirm("¿Está seguro de que desea eliminar este producto?")) {
+        if(confirm("🪦 ¿Está seguro de que desea desterrar esta reliquia de la cripta?")) {
             productos.splice(index, 1);
             renderProductos();
         }  
@@ -139,19 +145,18 @@ function actualizarEstadisticas() {
     document.getElementById('totalProductos')
         .textContent = totalProductos;
     document.getElementById('precioPromedio')
-        .textContent = precioPromedio;
-    const productoMasCaro = productos.length > 0 ?
-        Math.max(...productos.map(p => p.precio)) : 0;
-    const productoMasBarato = productos.length > 0 ?
-        Math.min(...productos.map(p => p.precio)) : 0;
+        .textContent = "🪙 " + precioPromedio;
+    
+    // Encontrar nombres o valores de más caro / más barato según prefieras, manteniendo el valor numérico original o adaptado
+    const productoMasCaroObj = productos.length > 0 ? productos.reduce((prev, current) => (prev.precio > current.precio) ? prev : current) : null;
+    const productoMasBaratoObj = productos.length > 0 ? productos.reduce((prev, current) => (prev.precio < current.precio) ? prev : current) : null;
+
     document.getElementById('productoMasCaro')
-        .textContent = productoMasCaro;
+        .textContent = productoMasCaroObj ? `${productoMasCaroObj.nombre} (🪙${productoMasCaroObj.precio})` : "N/A";
     document.getElementById('productoMasBarato')
-        .textContent = productoMasBarato;
+        .textContent = productoMasBaratoObj ? `${productoMasBaratoObj.nombre} (🪙${productoMasBaratoObj.precio})` : "N/A";
 };
 
 window.onload = function() {
     renderProductos();
-    document.getElementById("btnAgregar").addEventListener("click", agregarProducto);
-    document.getElementById("btnCancelar").addEventListener("click", limpiarFormulario);
 };

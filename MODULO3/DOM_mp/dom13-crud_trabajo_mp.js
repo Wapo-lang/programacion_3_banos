@@ -1,3 +1,4 @@
+// Registro de Guardianes y Empleados Espectrales en la Cripta
 const productos = [
 { 
     id: 1,
@@ -28,10 +29,10 @@ function renderEmpleados() {
             <td>${empleado.id}</td>
             <td>${empleado.nombre}</td>
             <td>${empleado.apellido}</td>
-            <td>${empleado.salario.toFixed(2)}</td>
+            <td>🪙 ${empleado.salario.toFixed(2)}</td>
             <td>
-                <button onclick="editarEmpleado(${empleado.id})">Editar</button>
-                <button onclick="eliminarEmpleado(${empleado.id})">Eliminar</button>      
+                <button onclick="editarEmpleado(${empleado.id})" style="background-color: #4c1d95; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Editar</button>
+                <button onclick="eliminarEmpleado(${empleado.id})" style="background-color: #7f1d1d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button>      
             </td>
         `;
         cuerpoTabla.appendChild(empleadoElement);
@@ -45,12 +46,12 @@ function agregarEmpleado() {
     const salarioInput = document.getElementById("salario").value.trim();
 
     if (!nombreInput || !apellidoInput || !salarioInput) {
-        alert("Por favor, complete todos los campos.");
+        alert("👻 Por favor, complete todos los campos del guardián.");
         return;
     }
 
     const nuevoEmpleado = {
-        id: productos.length + 1,
+        id: productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1,
         nombre: nombreInput,
         apellido: apellidoInput,
         salario: parseFloat(salarioInput)
@@ -58,7 +59,6 @@ function agregarEmpleado() {
 
     productos.push(nuevoEmpleado);
     renderEmpleados();
-
     limpiarFormulario();
 };
 
@@ -80,6 +80,7 @@ function editarEmpleado(id) {
         document.getElementById("salario").value = empleado.salario;
         idEditar = id;
         agregarbtn.textContent = "Actualizar Empleado";
+        agregarbtn.style.backgroundColor = "#d97706";
         agregarbtn.removeEventListener("click", agregarEmpleado);
         agregarbtn.addEventListener("click", actualizarEmpleado);
     }
@@ -91,7 +92,7 @@ function actualizarEmpleado() {
     const salarioInput = document.getElementById("salario").value.trim();
 
     if (!nombreInput || !apellidoInput || !salarioInput) {
-        alert("Por favor, complete todos los campos.");
+        alert("👻 Por favor, complete todos los campos del guardián.");
         return;
     }
 
@@ -106,6 +107,7 @@ function actualizarEmpleado() {
         renderEmpleados();
         limpiarFormulario();
         agregarbtn.textContent = "Agregar Empleado";
+        agregarbtn.style.backgroundColor = "#7c3aed";
         agregarbtn.removeEventListener("click", actualizarEmpleado);
         agregarbtn.addEventListener("click", agregarEmpleado);
         idEditar = null;
@@ -115,15 +117,19 @@ function actualizarEmpleado() {
 function cancelarEdicion() {
     limpiarFormulario();
     agregarbtn.textContent = "Agregar Empleado";
+    agregarbtn.style.backgroundColor = "#7c3aed";
     agregarbtn.removeEventListener("click", actualizarEmpleado);
     agregarbtn.addEventListener("click", agregarEmpleado);
     idEditar = null;
 };
 
+// Vinculación opcional del botón cancelar con la función de cancelar edición si se requiere
+document.getElementById("btnCancelar").addEventListener("click", cancelarEdicion);
+
 function eliminarEmpleado(id) {
     const index = productos.findIndex(p => p.id === id);
     if (index !== -1) {
-        if(confirm("¿Está seguro de que desea eliminar este empleado?")) {
+        if(confirm("🪦 ¿Está seguro de que desea desterrar a este empleado de la cripta?")) {
             productos.splice(index, 1);
             renderEmpleados();
         }  
@@ -136,22 +142,23 @@ function actualizarEstadisticas() {
     if (totalEmpleados > 0) {
         salarioPromedio = (productos.reduce((sum, p) => sum + p.salario, 0) / totalEmpleados).toFixed(2);
     }
-    document.getElementById('totalEmpleados')
-        .textContent = totalEmpleados;
-    document.getElementById('salarioPromedio')
-        .textContent = salarioPromedio;
-    const empleadoMasCaro = productos.length > 0 ?
-        Math.max(...productos.map(p => p.salario)) : 0;
-    const empleadoMasBarato = productos.length > 0 ?
-        Math.min(...productos.map(p => p.salario)) : 0;
-    document.getElementById('empleadoMasCaro')
-        .textContent = empleadoMasCaro;
-    document.getElementById('empleadoMasBarato')
-        .textContent = empleadoMasBarato;
+    
+    // Verificación segura si existen los elementos de estadísticas en el HTML
+    const elTotal = document.getElementById('totalEmpleados');
+    const elPromedio = document.getElementById('salarioPromedio');
+    const elCaro = document.getElementById('empleadoMasCaro');
+    const elBarato = document.getElementById('empleadoMasBarato');
+
+    if (elTotal) elTotal.textContent = totalEmpleados;
+    if (elPromedio) elPromedio.textContent = "🪙 " + salarioPromedio;
+
+    const empleadoMasCaroObj = productos.length > 0 ? productos.reduce((prev, current) => (prev.salario > current.salario) ? prev : current) : null;
+    const empleadoMasBaratoObj = productos.length > 0 ? productos.reduce((prev, current) => (prev.salario < current.salario) ? prev : current) : null;
+
+    if (elCaro) elCaro.textContent = empleadoMasCaroObj ? `${empleadoMasCaroObj.nombre} ${empleadoMasCaroObj.apellido} (🪙${empleadoMasCaroObj.salario})` : "N/A";
+    if (elBarato) elBarato.textContent = empleadoMasBaratoObj ? `${empleadoMasBaratoObj.nombre} ${empleadoMasBaratoObj.apellido} (🪙${empleadoMasBaratoObj.salario})` : "N/A";
 };
 
 window.onload = function() {
     renderEmpleados();
-    document.getElementById("btnAgregar").addEventListener("click", agregarEmpleado);
-    document.getElementById("btnCancelar").addEventListener("click", limpiarFormulario);
 };
