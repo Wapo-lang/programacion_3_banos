@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("🕯️ Primera alma errante encontrada:", primerItem);
 
     const todosLosItems = document.querySelectorAll(".item");
-    console.log("⚰️ Todas las almas seleccionadas:", todosLosItem);
+    console.log("⚰️ Todas las almas seleccionadas:", todosLosItems);
 
     Array.from(todosLosItems).forEach(element => {
         console.log("💀 Alma en pena individual:", element);
