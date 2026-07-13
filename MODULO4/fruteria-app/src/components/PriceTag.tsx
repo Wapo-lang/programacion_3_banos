@@ -1,6 +1,6 @@
 // src/components/PriceTag.tsx
 
-type Currency = 'USD' | 'EUR' | 'COP' | 'MXN' | 'GBP'
+type Currency = 'USD' | 'EUR' | 'COP' | 'MXN'
 
 interface PriceTagProps {
   amount: number
@@ -21,7 +21,6 @@ export default function PriceTag({
     EUR: '€',
     COP: '$',
     MXN: '$',
-    GBP: '£',
   }
 
   const symbol = symbols[currency]

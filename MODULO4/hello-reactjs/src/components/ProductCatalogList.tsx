@@ -5,7 +5,7 @@ interface Product {
   name: string
   price: number
   outOfStock?: boolean
-  category: string
+  category?: string
 }
 
 interface ProductCatalogListProps {
@@ -25,7 +25,7 @@ export default function ProductCatalogList({
         <p style={{ color: '#999' }}>No hay productos disponibles.</p>
       )}
 
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul style={{ listStyle: 'disc', padding: 0 }}>
         {products.map((product) => (
           <li
             key={product.id}
@@ -44,14 +44,17 @@ export default function ProductCatalogList({
                   Agotado
                 </em>
               )}
-              <em>
-                {product.category}
-              </em>
+                <em style={{ marginLeft: 12, color: 'rgb(255, 255, 255)' }}>
+                    {product.category}
+                </em>
             </span>
             <strong>${product.price.toFixed(2)}</strong>
           </li>
         ))}
       </ul>
+      <footer>
+        {products.length} producto(s)
+      </footer>
     </section>
   )
 }
