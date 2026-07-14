@@ -6,3 +6,8 @@ export interface User {
   isActive: boolean
   profile?: string
 }
+export interface CreateUserPayload {
+  username: string
+  email: string
+  password: string
+}
