@@ -1,20 +1,20 @@
 const caja = document.getElementById('caja');
 
 caja.addEventListener('mouseover', () => {
-    caja.style.backgroundColor = 'yellow';
+    caja.style.backgroundColor = '#fbbf24'; 
 });
 caja.addEventListener('mouseout', () => {
-    caja.style.backgroundColor = 'lightgray';
+    caja.style.backgroundColor = '#131c2e'; 
 });
 caja.addEventListener('click', () => {
-    alert('¡Has hecho clic en la caja!');
+    alert('👻 ¡Has perturbado el reposo de la caja encantada!');
 });
 
-const area = document.getElementById('area');
+const area = document.getElementById('areaTouch');
 
 area.addEventListener('touchstart', () => {
-    area.style.backgroundColor = 'green';
+    area.style.backgroundColor = '#064e3b'; 
 });
 area.addEventListener('touchend', () => {
-    area.style.backgroundColor = 'blue';
+    area.style.backgroundColor = '#1e1b4b'; 
 });
