@@ -15,7 +15,7 @@ export default function WindowSize() {
 
   useEffect(() => {
     function handleResize() {
-     console.log('resize detectado');
+     console.log('resize detectado en la cripta');
       setDimensions({
         width:  window.innerWidth,
         height: window.innerHeight,
@@ -27,8 +27,8 @@ export default function WindowSize() {
   }, [])
 
   return (
-    <p style={{ fontFamily: 'monospace', fontSize: 14, color: '#374151' }}>
-      Ventana: {dimensions.width} × {dimensions.height} px
+    <p style={{ fontFamily: 'monospace', fontSize: 14, color: '#34d399' }}>
+      Cripta (Ventana): {dimensions.width} × {dimensions.height} px
     </p>
   )
 }

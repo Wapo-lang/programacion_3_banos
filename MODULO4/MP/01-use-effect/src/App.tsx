@@ -18,7 +18,7 @@ import AutoFocusInput   from './components/AutoFocusInput'
 // │  7  FetchUser        — fetch real, loading/error, flag cancelled      │
 // │  8  AutoFocusInput   — useRef + useEffect para foco imperativo       │
 // └──────────────────────────────────────────────────────────────────────┘
-const PASO = 1
+const PASO = 8
 
 export default function App() {
   const content =

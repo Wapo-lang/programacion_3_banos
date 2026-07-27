@@ -60,43 +60,43 @@ export default function FetchUser() {
             style={{
               padding: '6px 14px',
               borderRadius: 6,
-              border: '1px solid #d1d5db',
-              background: userId === id ? '#0070f3' : '#fff',
-              color:      userId === id ? '#fff'    : '#333',
+              border: '1px solid #374151',
+              background: userId === id ? '#7c3aed' : '#131c2e',
+              color:      userId === id ? '#fff'    : '#d1d5db',
               cursor: 'pointer',
               fontWeight: userId === id ? 600 : 400,
             }}
           >
-            Usuario {id}
+            Alma {id}
           </button>
         ))}
       </div>
 
       {loading && (
-        <p style={{ color: '#6b7280', fontSize: 14 }}>Cargando...</p>
+        <p style={{ color: '#9ca3af', fontSize: 14 }}>Invocando alma...</p>
       )}
       {error && (
-        <p style={{ color: '#991b1b', fontSize: 14 }}>Error: {error}</p>
+        <p style={{ color: '#fca5a5', fontSize: 14 }}>Error espectral: {error}</p>
       )}
       {user && !loading && (
-        <div style={{ padding: 14, border: '1px solid #e5e7eb', borderRadius: 8 }}>
-          <p style={{ margin: '0 0 4px', fontWeight: 600 }}>{user.name}</p>
-          <p style={{ margin: '0 0 4px', fontSize: 13, color: '#6b7280' }}>
+        <div style={{ padding: 14, border: '1px solid #374151', borderRadius: 8, backgroundColor: '#131c2e' }}>
+          <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#a78bfa' }}>{user.name}</p>
+          <p style={{ margin: '0 0 4px', fontSize: 13, color: '#9ca3af' }}>
             @{user.username}
           </p>
-          <p style={{ margin: 0, fontSize: 13, color: '#6b7280' }}>
+          <p style={{ margin: 0, fontSize: 13, color: '#9ca3af' }}>
             {user.email}
           </p>
-           <p style={{ margin: 0, fontSize: 13, color: '#6b7280' }}>
+           <p style={{ margin: 0, fontSize: 13, color: '#9ca3af' }}>
             {user.address.street}
           </p>
-           <p style={{ margin: 0, fontSize: 13, color: '#6b7280' }}>
+           <p style={{ margin: 0, fontSize: 13, color: '#9ca3af' }}>
             {user.address.city}
           </p>
-           <p style={{ margin: 0, fontSize: 13, color: '#6b7280' }}>
+           <p style={{ margin: 0, fontSize: 13, color: '#9ca3af' }}>
             {user.website}
           </p>
-           <p style={{ margin: 0, fontSize: 13, color: '#6b7280' }}>
+           <p style={{ margin: 0, fontSize: 13, color: '#9ca3af' }}>
             {user.address.geo.lat}
           </p>
         </div>

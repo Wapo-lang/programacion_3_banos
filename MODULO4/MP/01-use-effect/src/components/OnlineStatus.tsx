@@ -20,8 +20,8 @@ export default function OnlineStatus() {
   }, [])
 
   return (
-    <p style={{ color: isOnline ? '#166534' : '#991b1b', fontWeight: 500 }}>
-      {isOnline ? '🟢 Conectado a Internet' : '🔴 Sin conexión'}
+    <p style={{ color: isOnline ? '#34d399' : '#fca5a5', fontWeight: 500 }}>
+      {isOnline ? '🟢 Conectado con el Más Allá' : '🔴 Alma desconectada de la red'}
     </p>
   )
 }

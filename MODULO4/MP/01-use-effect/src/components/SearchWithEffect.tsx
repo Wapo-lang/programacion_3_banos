@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react'
 
 const MOCK_DB: Record<string, string> = {
-  react:      'Biblioteca para construir interfaces de usuario.',
-  typescript: 'JavaScript con tipos estáticos.',
-  vite:       'Herramienta de desarrollo frontend ultrarrápida.',
-  hooks:      'Funciones que permiten usar estado y efectos en componentes funcionales.',
+  react:      'Biblioteca para invocar interfaces desde el más allá.',
+  typescript: 'JavaScript maldito con tipos estáticos.',
+  vite:       'Herramienta de invocación frontend ultrarrápida.',
+  hooks:      'Conjuros que permiten usar estado y efectos en la cripta.',
 }
 
 export default function SearchWithEffect() {
@@ -22,7 +22,7 @@ export default function SearchWithEffect() {
     }
 
     const found = MOCK_DB[normalized]
-    setResult(found ?? 'Sin resultados para esa búsqueda.')
+    result: setResult(found ?? 'Ningún espíritu responde a esa búsqueda.')
   }, [query])
 
   return (
@@ -33,13 +33,16 @@ export default function SearchWithEffect() {
         placeholder="Busca: react, typescript, vite, hooks..."
         style={{
           padding: '8px 12px',
-          border: '1px solid #d1d5db',
+          border: '1px solid #374151',
           borderRadius: 6,
           fontSize: 14,
+          backgroundColor: '#0b0f19',
+          color: '#d1d5db',
+          boxSizing: 'border-box',
         }}
       />
       {result && (
-        <p style={{ margin: 0, fontSize: 14, color: '#374151', padding: '8px 12px', background: '#f9fafb', borderRadius: 6 }}>
+        <p style={{ margin: 0, fontSize: 14, color: '#34d399', padding: '8px 12px', background: '#131c2e', border: '1px solid #374151', borderRadius: 6 }}>
           {result}
         </p>
       )}
