@@ -11,9 +11,9 @@ const PASO = 5
 interface CartItem { id: number; name: string; price: number }
 
 const catalog = [
-  { id: 1, name: 'Teclado mecánico',  price: 89.99 },
-  { id: 2, name: 'Monitor 27"',       price: 349.99 },
-  { id: 3, name: 'Mouse inalámbrico', price: 29.99 },
+  { id: 1, name: 'Lápida antigua', price: 50 },
+  { id: 2, name: 'Cruz de piedra', price: 80 },
+  { id: 3, name: 'Flor de silencio', price: 25 },
 ]
 
 export default function App() {
@@ -36,7 +36,8 @@ export default function App() {
     PASO === 4 ? <TaskManager /> :
     PASO === 5 ? (
       <>
-        <h1 style={{ fontSize: 22 }}>Tienda</h1>
+        <h1 style={{ fontSize: 22, color: '#f5f5f4' }}>Panteón de recuerdos</h1>
+        <p style={{ marginBottom: 16, color: '#d1d5db' }}>Elige un recuerdo para llevarlo al registro.</p>
         <section>
           {catalog.map((p) => (
             <CatalogProductItem

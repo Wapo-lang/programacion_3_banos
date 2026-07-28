@@ -22,14 +22,14 @@ export default function ConditionalGreeting({
   if (!isLoggedIn) {
     return (
       <p style={{ color: '#e00' }}>
-        Por favor inicia sesión para continuar.
+        Debes entrar en silencio para continuar.
       </p>
     )
   }
 
   return (
     <p style={{ color: '#333' }}>
-      {greetings[timeOfDay]}, <strong>{userName}</strong>. Bienvenido de vuelta.
+      {greetings[timeOfDay]}, <strong>{userName}</strong>. Bienvenido de vuelta al panteón.
     </p>
   )
 }

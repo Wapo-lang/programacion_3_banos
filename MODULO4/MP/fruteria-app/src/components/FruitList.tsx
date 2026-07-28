@@ -13,9 +13,9 @@ interface FruitListProps {
   inSeason?: boolean 
 }
 
-export default function FruitList({ fruits, title = 'Frutas' }: FruitListProps) {
+export default function FruitList({ fruits, title = 'Lápidas' }: FruitListProps) {
   if (fruits.length === 0) {
-    return <p style={{ color: '#999' }}>No hay frutas en la lista.</p>
+    return <p style={{ color: '#999' }}>No hay recuerdos en este sendero.</p>
   }
   const sorted = [...fruits].sort((a, b) => a.calories - b.calories)
   return (
@@ -32,9 +32,9 @@ export default function FruitList({ fruits, title = 'Frutas' }: FruitListProps) 
               borderBottom: 'none',
             }}
           >
-            <span>{fruit.emoji}{fruit.inSeason && '🌟'} {fruit.name}</span>
+            <span>{fruit.emoji}{fruit.inSeason && '�'} {fruit.name}</span>
             {sorted && (
-            <span style={{ color: '#888', fontSize: 13 }}>{fruit.calories} kcal</span>)}
+            <span style={{ color: '#888', fontSize: 13 }}>{fruit.calories} pasos</span>)}
           </li>
         ))}
       </ul>

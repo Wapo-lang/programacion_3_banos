@@ -31,15 +31,14 @@ import UserProfileCard     from './components/UserProfileCard'*/
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 1
+const PASO = 11
 
 const fruits = [
-  { name: 'Manzana', emoji: '🍎', inSeason: true, calories: 52 },
-  { name: 'Banana',  emoji: '🍌', calories: 89 },
-  { name: 'Naranja', emoji: '🍊', calories: 47 },
-  { name: 'Kiwi', emoji: '🥝', calories: 61 },
-  { name: 'Piña', emoji: '🍍', calories: 68 },
-  { name: 'Mango', emoji: '🥭', calories: 86 },
+  { name: 'Lápida antigua', emoji: '🪦', inSeason: true, calories: 42 },
+  { name: 'Árbol del recuerdo', emoji: '🌳', calories: 18 },
+  { name: 'Noche de luna', emoji: '🌙', calories: 27 },
+  { name: 'Cruz de piedra', emoji: '✝️', calories: 33 },
+  { name: 'Flor de la paz', emoji: '🌼', calories: 15 },
 ]
 
 const catalog = [
@@ -51,48 +50,48 @@ const catalog = [
 
 export default function App() {
   const content =
-    PASO ===  1 ? <WelcomeBanner subtitle='Programadores Estrellas'/> :
-    PASO ===  2 ? <><UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /></> :
+    PASO ===  1 ? <WelcomeBanner subtitle='Panteón de los Recuerdos'/> :
+    PASO ===  2 ? <><UserGreeting name="Elena Torres" occupation="Guardiana del cementerio" /></> :
     PASO ===  3 ? <CurrentDateDisplay /> :
     PASO ===  4 ? (
       <div style={{ display: 'flex', gap: 12 }}>
-        <ColoredBox color="#0070f3" label="Primary" borderRadius={50}/>
-        <ColoredBox color="#22c55e" label="Success" borderRadius={130} />
-        <ColoredBox color="#e00"  borderRadius={40}  />
+        <ColoredBox color="#4b5563" label="Niebla" borderRadius={50}/>
+        <ColoredBox color="#6b7280" label="Sombra" borderRadius={130} />
+        <ColoredBox color="#8b5e3c" label="Tierra" borderRadius={40}  />
       </div>
     ) :
-    PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Carlos" timeOfDay="evening" /> :
-    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
+    PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Tomás" timeOfDay="evening" /> :
+    PASO ===  6 ? <FruitList fruits={fruits} title="Sendero de lápidas" /> :
     PASO ===  7 ? (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
-        <PriceTag amount={99.99} currency="USD" />
-        <PriceTag amount={99.99} currency="USD" discountPercent={20} />
+        <PriceTag amount={50} currency="COP" />
+        <PriceTag amount={50} currency="COP" discountPercent={10} />
       </div>
     ) :
     PASO ===  8 ? (
       <div style={{ display: 'flex', gap: 8 }}>
         <StatusBadge status="active" />
-        <StatusBadge status="pending" label="En revisión" />
+        <StatusBadge status="pending" label="En descanso" />
         <StatusBadge status="error" />
-        <StatusBadge status="inactive" label="Inactivation" />
+        <StatusBadge status="inactive" label="Silencio" />
       </div>
     ) :
     PASO ===  9 ? (
       <MiniProfileCard
-        fullName="Ana García"
-        role="Senior Developer"
-        department="Ingeniería"
-        status="active"
-        joinedYear={2019}
+        fullName="Elena Torres"
+        role="Guardián nocturno"
+        department="Panteón"
+        status="inactive"
+        joinedYear={2020}
       />
     ) :
     PASO === 10 ? (
       <SimpleInfoTable
-        title="Resumen del pedido"
+        title="Registro del lugar"
         rows={[
-          { label: 'Subtotal',  value: '$89.99' },
-          { label: 'Envío',     value: '$5.00' },
-          { label: 'Total',     value: '$94.99', highlight: true },
+          { label: 'Sector',  value: 'Norte' },
+          { label: 'Hora',     value: '22:00' },
+          { label: 'Estado',     value: 'Tranquilo', highlight: true },
         ]}
       />
     ):

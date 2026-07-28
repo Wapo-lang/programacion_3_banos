@@ -6,65 +6,61 @@ import type { ColumnsType } from 'antd/es/table'
 const { Title, Text } = Typography
 
 interface SaleRow {
-  key:      number
+  key: number
   customer: string
-  product:  string
-  total:    number
+  product: string
+  total: number
   progress: number
-  status:   'paid' | 'pending' | 'failed'
+  status: 'paid' | 'pending' | 'failed'
 }
 
 const DATA: SaleRow[] = [
-  { key: 1, customer: 'Empresa Alpha',    product: 'Plan Pro',    total: 1200, progress: 100, status: 'paid'    },
-  { key: 2, customer: 'StartupBeta',      product: 'Plan Básico', total: 740,  progress: 65,  status: 'pending' },
-  { key: 3, customer: 'Consultora Gamma', product: 'Plan Pro',    total: 1200, progress: 100, status: 'paid'    },
-  { key: 4, customer: 'MiPyme Delta',     product: 'Plan Team',   total: 310,  progress: 0,   status: 'failed'  },
-  { key: 5, customer: 'TechEpsilon',      product: 'Plan Pro',    total: 1200, progress: 40,  status: 'pending' },
+  { key: 1, customer: 'Ana Torres', product: 'Lápida simple', total: 1200, progress: 100, status: 'paid' },
+  { key: 2, customer: 'Luis Vega', product: 'Roca funeraria', total: 740, progress: 65, status: 'pending' },
+  { key: 3, customer: 'Marta Ruiz', product: 'Lápida simple', total: 1200, progress: 100, status: 'paid' },
+  { key: 4, customer: 'Pablo León', product: 'Placa', total: 310, progress: 0, status: 'failed' },
+  { key: 5, customer: 'Clara Sol', product: 'Lápida simple', total: 1200, progress: 40, status: 'pending' },
 ]
 
 const STATUS_COLOR: Record<SaleRow['status'], string> = {
-  paid:    'success',
+  paid: 'success',
   pending: 'warning',
-  failed:  'error',
+  failed: 'error',
 }
 
 const STATUS_LABEL: Record<SaleRow['status'], string> = {
-  paid:    'Pagado',
+  paid: 'Finalizado',
   pending: 'Pendiente',
-  failed:  'Fallido',
+  failed: 'Fallido',
 }
 
 const COLUMNS: ColumnsType<SaleRow> = [
   {
-    title:     'Cliente',
+    title: 'Visitante',
     dataIndex: 'customer',
-    render:    (v: string) => <Text strong>{v}</Text>,
+    render: (v: string) => <Text strong style={{ color: '#f5efe6' }}>{v}</Text>,
   },
-  { title: 'Producto', dataIndex: 'product' },
+  { title: 'Servicio', dataIndex: 'product', render: (v: string) => <span style={{ color: '#f5efe6' }}>{v}</span> },
   {
-    title:     'Total',
+    title: 'Costo',
     dataIndex: 'total',
-    align:     'right',
-    render:    (v: number) => <Text strong>${v.toLocaleString()}</Text>,
-    sorter:    (a, b) => a.total - b.total,
+    align: 'right',
+    render: (v: number) => <Text strong style={{ color: '#f5efe6' }}>${v.toLocaleString()}</Text>,
+    sorter: (a, b) => a.total - b.total,
   },
   {
-    title:     'Avance',
+    title: 'Avance',
     dataIndex: 'progress',
-    render:    (v: number) => (
-      <Progress percent={v} size="small" style={{ margin: 0 }} />
-    ),
+    render: (v: number) => <Progress percent={v} size="small" style={{ margin: 0 }} />,
   },
   {
-    title:     'Estado',
+    title: 'Estado',
     dataIndex: 'status',
-    render:    (v: SaleRow['status']) => (
-      <Tag color={STATUS_COLOR[v]}>{STATUS_LABEL[v]}</Tag>
-    ),
+    render: (v: SaleRow['status']) => <Tag color={STATUS_COLOR[v]}>{STATUS_LABEL[v]}</Tag>,
     filters: [
-      { text: 'Pagado',    value: 'paid'    },
+      { text: 'Finalizado', value: 'paid' },
       { text: 'Pendiente', value: 'pending' },
-      { text: 'Fallido',   value: 'failed'  },
+      { text: 'Fallido', value: 'failed' },
     ],
     onFilter: (value, record) => record.status === value,
   },
@@ -73,12 +69,13 @@ const COLUMNS: ColumnsType<SaleRow> = [
 export default function AntSalesTable() {
   return (
     <div style={{ marginBottom: 24 }}>
-      <Title level={5} style={{ marginBottom: 12 }}>Últimas ventas</Title>
+      <Title level={5} style={{ marginBottom: 12, color: '#f5efe6' }}>Últimos visitantes</Title>
       <Table<SaleRow>
         columns={COLUMNS}
         dataSource={DATA}
         pagination={{ pageSize: 4 }}
         size="middle"
+        style={{ background: '#201d17', color: '#f5efe6' }}
       />
     </div>
   )

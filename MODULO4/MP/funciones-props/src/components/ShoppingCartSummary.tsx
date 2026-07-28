@@ -21,16 +21,18 @@ export default function ShoppingCartSummary({
   return (
     <div
       style={{
-        border: '1px solid #ddd',
+        border: '1px solid #4b5563',
         borderRadius: 10,
         padding: 16,
         marginTop: 24,
+        backgroundColor: '#1f2937',
+        color: '#f9fafb',
       }}
     >
       <h3 style={{ marginTop: 0 }}>Carrito ({items.length} items)</h3>
 
       {items.length === 0 && (
-        <p style={{ color: '#999' }}>El carrito está vacío.</p>
+        <p style={{ color: '#cbd5e1' }}>El registro está vacío.</p>
       )}
 
       <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -56,7 +58,7 @@ export default function ShoppingCartSummary({
             onClick={onClearCart}
             style={{
               marginTop: 12,
-              backgroundColor: '#e00',
+              backgroundColor: '#6b7280',
               color: '#fff',
               border: 'none',
               borderRadius: 6,
@@ -65,7 +67,7 @@ export default function ShoppingCartSummary({
               width: '100%',
             }}
           >
-            Vaciar carrito
+            Limpiar registro
           </button>
         </>
       )}

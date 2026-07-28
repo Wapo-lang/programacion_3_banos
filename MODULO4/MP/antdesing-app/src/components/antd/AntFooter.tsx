@@ -3,13 +3,13 @@
 import { Layout, Typography } from 'antd'
 
 const { Footer } = Layout
-const { Text }   = Typography
+const { Text } = Typography
 
 export default function AntFooter() {
   return (
-    <Footer style={{ textAlign: 'center' }}>
-      <Text type="secondary">
-        SalesBoard © {new Date().getFullYear()} — Ant Design v6 + React 19
+    <Footer style={{ textAlign: 'center', background: '#171717', color: '#d8c8a8', borderTop: '1px solid #4f4b38' }}>
+      <Text style={{ color: '#d8c8a8' }}>
+        Cementerio de Luna © {new Date().getFullYear()} — Paz eterna
       </Text>
     </Footer>
   )
