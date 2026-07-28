@@ -4,24 +4,25 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 
 export default function RootLayout() {
   return (
-    <div style={{ fontFamily: 'sans-serif' }}>
+    <div style={{ fontFamily: 'sans-serif', backgroundColor: '#0b0f19', color: '#d1d5db', minHeight: '100vh' }}>
       <header style={{
         display: 'flex', alignItems: 'center', gap: 24,
-        padding: '12px 24px', borderBottom: '1px solid #e5e7eb',
+        padding: '12px 24px', borderBottom: '1px solid #374151',
+        backgroundColor: '#131c2e',
       }}>
         <Link
           to="/"
-          style={{ fontWeight: 700, fontSize: 18, textDecoration: 'none', color: '#111' }}
+          style={{ fontWeight: 700, fontSize: 18, textDecoration: 'none', color: '#f3f4f6' }}
         >
-          Mi App
+          Cripta App 👻
         </Link>
 
         <nav style={{ display: 'flex', gap: 16 }}>
           {[
-            { to: '/',        label: 'Inicio'    },
-            { to: '/products', label: 'Productos' },
-            { to: '/about',   label: 'Acerca de' },
-            { to: '/registration' , label: 'Registro'},
+            { to: '/',         label: 'Inicio espectral' },
+            { to: '/products', label: 'Ofrendas' },
+            { to: '/about',    label: 'Acerca del panteón' },
+            { to: '/registration', label: 'Invocación / Registro' },
           ].map(({ to, label }) => (
             <NavLink
               key={to}
@@ -30,8 +31,8 @@ export default function RootLayout() {
               style={({ isActive }) => ({
                 textDecoration: 'none',
                 fontWeight:   isActive ? 600   : 400,
-                color:        isActive ? '#0070f3' : '#6b7280',
-                borderBottom: isActive ? '2px solid #0070f3' : '2px solid transparent',
+                color:        isActive ? '#34d399' : '#9ca3af',
+                borderBottom: isActive ? '2px solid #34d399' : '2px solid transparent',
                 paddingBottom: 4,
               })}
             >

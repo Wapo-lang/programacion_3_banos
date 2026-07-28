@@ -13,16 +13,16 @@ export default function AppHeader() {
     <header style={{
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '12px 24px',
-      background: theme === 'dark' ? '#111827' : '#fff',
-      borderBottom: '1px solid #e5e7eb',
+      background: theme === 'dark' ? '#0b0f19' : '#131c2e',
+      borderBottom: '1px solid #374151',
     }}>
       <div>
-        <h1 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>
-          Mi App
+        <h1 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: '#f3f4f6' }}>
+          Panteón Espectral
         </h1>
         {auth.user && (
           <p style={{ margin: 0, fontSize: 12, color: '#9ca3af' }}>
-            Panel de {auth.user.role}
+            Cripta de {auth.user.role}
           </p>
         )}
       </div>

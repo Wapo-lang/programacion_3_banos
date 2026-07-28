@@ -1,26 +1,26 @@
 // src/pages/ProductsPage.tsx
 
-import { useState, useMemo }  from 'react'
+import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
 interface Product {
-  id:       number
-  name:     string
+  id:        number
+  name:      string
   category: string
   price:    number
 }
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: 'Teclado mecánico',  category: 'periféricos',  price: 89  },
-  { id: 2, name: 'Monitor 27"',       category: 'pantallas',    price: 349 },
-  { id: 3, name: 'Mouse inalámbrico', category: 'periféricos',  price: 29  },
-  { id: 4, name: 'Webcam HD',         category: 'cámaras',      price: 59  },
-  { id: 5, name: 'Auriculares BT',    category: 'audio',        price: 149 },
+  { id: 1, name: 'Ánima Mecánica (Teclado)', category: 'reliquias',   price: 89  },
+  { id: 2, name: 'Espejo Espectral 27"',    category: 'portales',    price: 349 },
+  { id: 3, name: 'Orbe Inalámbrico (Mouse)',category: 'reliquias',   price: 29  },
+  { id: 4, name: 'OJO HD (Cámara del más allá)', category: 'visiones', price: 59  },
+  { id: 5, name: 'Ecos del Inframundo (Auriculares)', category: 'resonancias', price: 149 },
 ]
 
 export default function ProductsPage() {
   // useSearchParams sincroniza filtros con la URL
-  // ?q=teclado&category=periféricos queda en la barra del navegador
+  // ?q=ánima&category=reliquias queda en la barra del navegador
   const [searchParams, setSearchParams] = useSearchParams()
 
   const query    = searchParams.get('q')        ?? ''
@@ -28,7 +28,11 @@ export default function ProductsPage() {
 
   function handleQueryChange(value: string) {
     setSearchParams(
-      (prev) => { prev.set('q', value); return prev },
+      (prev) => {
+        if (value) prev.set('q', value)
+        else       prev.delete('q')
+        return prev
+      },
       { replace: true }
     )
   }
@@ -54,22 +58,22 @@ export default function ProductsPage() {
   const categories = [...new Set(PRODUCTS.map((p) => p.category))]
 
   return (
-    <div>
-      <h1 style={{ fontSize: 22, marginBottom: 16 }}>Productos</h1>
+    <div style={{ backgroundColor: '#0b0f19', color: '#d1d5db', padding: 24, borderRadius: 10, border: '1px solid #374151' }}>
+      <h1 style={{ fontSize: 22, marginBottom: 16, color: '#f3f4f6', fontWeight: 700 }}>Catálogo de Ofrendas</h1>
 
-      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+      <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
         <input
           value={query}
           onChange={(e) => handleQueryChange(e.target.value)}
-          placeholder="Buscar..."
-          style={{ flex: 1, padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 6 }}
+          placeholder="Buscar ofrenda en la cripta..."
+          style={{ flex: 1, minWidth: 200, padding: '10px 12px', border: '1px solid #374151', borderRadius: 6, backgroundColor: '#131c2e', color: '#d1d5db', outline: 'none' }}
         />
         <select
           value={category}
           onChange={(e) => handleCategoryChange(e.target.value)}
-          style={{ padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 6 }}
+          style={{ padding: '10px 12px', border: '1px solid #374151', borderRadius: 6, backgroundColor: '#131c2e', color: '#d1d5db', outline: 'none' }}
         >
-          <option value="">Todas las categorías</option>
+          <option value="">Todas las naturalezas</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>{cat}</option>
           ))}
@@ -85,18 +89,19 @@ export default function ProductsPage() {
           >
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              padding: '12px 16px', border: '1px solid #e5e7eb', borderRadius: 8,
+              padding: '12px 16px', border: '1px solid #374151', borderRadius: 8,
+              backgroundColor: '#131c2e', transition: 'border-color 0.2s',
             }}>
               <div>
-                <p style={{ margin: 0, fontWeight: 500 }}>{product.name}</p>
-                <p style={{ margin: 0, fontSize: 12, color: '#9ca3af' }}>{product.category}</p>
+                <p style={{ margin: 0, fontWeight: 600, color: '#f3f4f6' }}>{product.name}</p>
+                <p style={{ margin: 0, fontSize: 12, color: '#a78bfa' }}>{product.category}</p>
               </div>
-              <span style={{ fontWeight: 600 }}>${product.price}</span>
+              <span style={{ fontWeight: 700, color: '#34d399' }}>${product.price.toFixed(2)}</span>
             </div>
           </Link>
         ))}
         {filtered.length === 0 && (
-          <p style={{ color: '#9ca3af' }}>Sin resultados.</p>
+          <p style={{ color: '#9ca3af', textAlign: 'center', padding: 24 }}>Ninguna ofrenda coincide con los filtros del panteón.</p>
         )}
       </div>
     </div>

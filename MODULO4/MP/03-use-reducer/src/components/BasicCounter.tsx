@@ -31,7 +31,7 @@ export default function BasicCounter() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 200 }}>
-      <p style={{ fontFamily: 'monospace', fontSize: 32, margin: 0, textAlign: 'center' }}>
+      <p style={{ fontFamily: 'monospace', fontSize: 32, margin: 0, textAlign: 'center', color: '#34d399', textShadow: '0 0 10px rgba(52, 211, 153, 0.4)' }}>
         {state.count}
       </p>
       <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
@@ -52,11 +52,11 @@ export default function BasicCounter() {
         onClick={() => dispatch({ type: 'SET', payload: 100 })}
         style={{ ...btnStyle, fontSize: 12 }}
       >
-        Poner en 100
+        Invocar a 100 almas
       </button>
       <button
         onClick={() => dispatch({ type: 'RESET' })}
-        style={{ ...btnStyle, background: '#f3f4f6', color: '#6b7280' }}
+        style={{ ...btnStyle, background: '#374151', color: '#d1d5db' }}
       >
         Reset
       </button>
@@ -66,9 +66,9 @@ export default function BasicCounter() {
 
 const btnStyle: React.CSSProperties = {
   padding: '8px 16px',
-  border: 'none',
+  border: '1px solid #4b5563',
   borderRadius: 6,
-  background: '#0070f3',
+  background: '#7c3aed',
   color: '#fff',
   cursor: 'pointer',
   fontWeight: 500,

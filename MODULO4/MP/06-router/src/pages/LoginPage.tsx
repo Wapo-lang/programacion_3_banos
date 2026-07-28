@@ -1,6 +1,6 @@
 // src/pages/LoginPage.tsx
 
-import { useState }     from 'react'
+import { useState }    from 'react'
 import { useNavigate }  from 'react-router-dom'
 
 export default function LoginPage() {
@@ -22,17 +22,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ maxWidth: 320, margin: '0 auto' }}>
-      <h1 style={{ fontSize: 22, marginBottom: 20 }}>Iniciar sesión</h1>
+    <div style={{ maxWidth: 360, margin: '60px auto', padding: 24, backgroundColor: '#131c2e', borderRadius: 10, border: '1px solid #374151' }}>
+      <h1 style={{ fontSize: 22, marginBottom: 20, color: '#f3f4f6', fontWeight: 700 }}>Invocación de Acceso (Login)</h1>
       <form
         onSubmit={handleSubmit}
-        style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+        style={{ display: 'flex', flexDirection: 'column', gap: 14 }}
       >
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="Correo electrónico del alma"
           required
           style={inputStyle}
         />
@@ -40,7 +40,7 @@ export default function LoginPage() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
+          placeholder="Contraseña secreta"
           required
           style={inputStyle}
         />
@@ -48,12 +48,13 @@ export default function LoginPage() {
           type="submit"
           disabled={loading}
           style={{
-            padding: '10px', background: loading ? '#93c5fd' : '#0070f3',
+            padding: '10px', background: loading ? '#4b5563' : '#7c3aed',
             color: '#fff', border: 'none', borderRadius: 6,
-            cursor: loading ? 'not-allowed' : 'pointer', fontWeight: 500,
+            cursor: loading ? 'not-allowed' : 'pointer', fontWeight: 600,
+            fontSize: 14, transition: 'background 0.2s',
           }}
         >
-          {loading ? 'Entrando...' : 'Entrar'}
+          {loading ? 'Cruzando el umbral...' : 'Entrar a la Cripta'}
         </button>
       </form>
     </div>
@@ -61,7 +62,11 @@ export default function LoginPage() {
 }
 
 const inputStyle = {
-  padding: '8px 12px',
-  border: '1px solid #d1d5db',
-  borderRadius: 6, fontSize: 14,
+  padding: '10px 12px',
+  border: '1px solid #374151',
+  borderRadius: 6, 
+  fontSize: 14,
+  backgroundColor: '#0b0f19',
+  color: '#d1d5db',
+  outline: 'none',
 }

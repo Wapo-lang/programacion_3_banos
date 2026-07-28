@@ -3,17 +3,17 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
 const NAV_ITEMS = [
-  { to: '',           label: 'Resumen'       },
-  { to: 'analytics',  label: 'Analítica'     },
-  { to: 'settings',   label: 'Configuración' },
+  { to: '',         label: 'Resumen de la cripta' },
+  { to: 'analytics',  label: 'Analítica espectral'  },
+  { to: 'settings',   label: 'Configuración del panteón' },
 ]
 
 export default function DashboardLayout() {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: 24 }}>
-      <aside style={{ borderRight: '1px solid #e5e7eb', paddingRight: 16 }}>
-        <p style={{ fontSize: 12, fontWeight: 600, color: '#9ca3af', marginBottom: 8 }}>
-          DASHBOARD
+    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 24, padding: 24, backgroundColor: '#0b0f19', minHeight: '100vh', boxSizing: 'border-box' }}>
+      <aside style={{ borderRight: '1px solid #374151', paddingRight: 16 }}>
+        <p style={{ fontSize: 12, fontWeight: 600, color: '#a78bfa', marginBottom: 12, letterSpacing: '0.05em' }}>
+          PANTEÓN / DASHBOARD
         </p>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {NAV_ITEMS.map(({ to, label }) => (
@@ -22,11 +22,12 @@ export default function DashboardLayout() {
               to={to}
               end
               style={({ isActive }) => ({
-                padding: '6px 10px', borderRadius: 6,
+                padding: '8px 12px', borderRadius: 6,
                 textDecoration: 'none', fontSize: 14,
-                background: isActive ? '#eff6ff' : 'transparent',
-                color:      isActive ? '#1d4ed8' : '#374151',
+                background: isActive ? '#131c2e' : 'transparent',
+                color:      isActive ? '#34d399' : '#9ca3af',
                 fontWeight: isActive ? 600 : 400,
+                border:     isActive ? '1px solid #374151' : '1px solid transparent',
               })}
             >
               {label}
@@ -35,7 +36,7 @@ export default function DashboardLayout() {
         </nav>
       </aside>
 
-      <section>
+      <section style={{ backgroundColor: '#0b0f19', color: '#d1d5db' }}>
         <Outlet />  {/* renderiza la sub-ruta activa aquí */}
       </section>
     </div>

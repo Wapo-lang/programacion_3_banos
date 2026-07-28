@@ -12,15 +12,15 @@ export default function ThemeToggle() {
       style={{
         padding: '8px 16px',
         borderRadius: 20,
-        border: '1px solid #d1d5db',
-        background: theme === 'dark' ? '#1f2937' : '#f9fafb',
-        color:      theme === 'dark' ? '#f9fafb' : '#1f2937',
+        border: '1px solid #374151',
+        background: theme === 'dark' ? '#131c2e' : '#1f2937',
+        color:      theme === 'dark' ? '#34d399' : '#f9fafb',
         cursor: 'pointer',
         fontWeight: 500,
         fontSize: 14,
       }}
     >
-      {theme === 'light' ? '🌙 Modo oscuro' : '☀️ Modo claro'}
+      {theme === 'light' ? '👻 Modo espectral' : '☀️ Modo normal'}
     </button>
   )
 }

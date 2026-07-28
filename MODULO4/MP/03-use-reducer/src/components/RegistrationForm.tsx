@@ -92,8 +92,8 @@ export default function RegistrationForm() {
       style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 320 }}
     >
       {state.status === 'success' && (
-        <div style={{ padding: 12, background: '#dcfce7', borderRadius: 6, color: '#166534' }}>
-          ✅ Registro exitoso
+        <div style={{ padding: 12, background: '#065f46', borderRadius: 6, color: '#34d399', border: '1px solid #059669' }}>
+          🪦 Alma registrada exitosamente en el panteón
         </div>
       )}
 
@@ -103,7 +103,7 @@ export default function RegistrationForm() {
           onChange={(e) =>
             dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })
           }
-          placeholder="Nombre completo"
+          placeholder="Nombre del difunto"
           disabled={isSubmitting}
           style={inputStyle(!!state.errors.name)}
         />
@@ -117,7 +117,7 @@ export default function RegistrationForm() {
           onChange={(e) =>
             dispatch({ type: 'SET_FIELD', field: 'lastname', value: e.target.value })
           }
-          placeholder="Apellido completo"
+          placeholder="Apellido de la estirpe"
           disabled={isSubmitting}
           style={inputStyle(!!state.errors.lastname)}
         />
@@ -132,7 +132,7 @@ export default function RegistrationForm() {
           onChange={(e) =>
             dispatch({ type: 'SET_FIELD', field: 'email', value: e.target.value })
           }
-          placeholder="Correo electrónico"
+          placeholder="Correo hacia el más allá"
           disabled={isSubmitting}
           style={inputStyle(!!state.errors.email)}
         />
@@ -148,7 +148,7 @@ export default function RegistrationForm() {
           onChange={(e) =>
             dispatch({ type: 'SET_FIELD', field: 'password', value: e.target.value })
           }
-          placeholder="Contraseña (mín. 6 caracteres)"
+          placeholder="Contraseña de la cripta (mín. 6)"
           disabled={isSubmitting}
           style={inputStyle(!!state.errors.password)}
         />
@@ -163,13 +163,13 @@ export default function RegistrationForm() {
           disabled={isSubmitting}
           style={{
             flex: 1, padding: '10px',
-            background: isSubmitting || isValidatig? '#93c5fd' : '#0070f3',
+            background: isSubmitting || isValidatig? '#5b21b6' : '#7c3aed',
             color: '#fff', border: 'none', borderRadius: 6,
             cursor: isSubmitting || isValidatig? 'not-allowed' : 'pointer',
             fontWeight: 500,
           }}
         >
-          {isSubmitting ? 'Registrando...' : isValidatig ? 'Validando ...' : 'Registrar'}
+          {isSubmitting ? 'Inscribiendo lápida...' : isValidatig ? 'Validando conjuros...' : 'Inscribir en cripta'}
         </button>
         <button
           type="button"
@@ -177,7 +177,7 @@ export default function RegistrationForm() {
           disabled={isSubmitting}
           style={{
             padding: '10px 16px',
-            background: '#f3f4f6', color: '#6b7280',
+            background: '#374151', color: '#d1d5db',
             border: 'none', borderRadius: 6, cursor: 'pointer',
           }}
         >
@@ -192,15 +192,17 @@ function inputStyle(hasError: boolean): React.CSSProperties {
   return {
     width: '100%',
     padding: '8px 12px',
-    border: `1px solid ${hasError ? '#ef4444' : '#d1d5db'}`,
+    border: `1px solid ${hasError ? '#f87171' : '#374151'}`,
     borderRadius: 6,
     fontSize: 14,
     boxSizing: 'border-box',
+    backgroundColor: '#0b0f19',
+    color: '#d1d5db',
   }
 }
 
 const errorStyle: React.CSSProperties = {
   margin: '4px 0 0',
   fontSize: 12,
-  color: '#ef4444',
+  color: '#f87171',
 }

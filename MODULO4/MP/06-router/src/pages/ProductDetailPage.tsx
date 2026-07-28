@@ -14,20 +14,20 @@ export default function ProductDetailPage() {
   const productId = Number(id)
 
   if (!id || isNaN(productId)) {
-    return <p style={{ color: '#ef4444' }}>ID de producto inválido.</p>
+    return <p style={{ color: '#f87171', padding: 24, textAlign: 'center' }}>ID de ofrenda inválido en el panteón.</p>
   }
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#0b0f19', color: '#d1d5db', padding: 24, borderRadius: 10, border: '1px solid #374151' }}>
       <Link
         to="/products"
-        style={{ fontSize: 13, color: '#6b7280', textDecoration: 'none' }}
+        style={{ fontSize: 13, color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}
       >
-        ← Volver a productos
+        ← Volver a las ofrendas
       </Link>
-      <h1 style={{ marginTop: 12 }}>Producto #{productId}</h1>
-      <p style={{ color: '#6b7280' }}>
-        Aquí iría el detalle del producto con ID {productId}.
+      <h1 style={{ marginTop: 12, fontSize: 24, fontWeight: 700, color: '#f3f4f6' }}>Ofrenda Espectral #{productId}</h1>
+      <p style={{ color: '#9ca3af', lineHeight: 1.6 }}>
+        Aquí reposan los detalles sagrados de la ofrenda con ID {productId} dentro del panteón digital.
       </p>
     </div>
   )

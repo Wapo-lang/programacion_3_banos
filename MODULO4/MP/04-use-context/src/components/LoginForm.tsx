@@ -22,7 +22,7 @@ export default function LoginForm() {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Correo electrónico"
+        placeholder="Correo de acceso espectral"
         disabled={state.isLoading}
         style={inputStyle}
       />
@@ -30,13 +30,13 @@ export default function LoginForm() {
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Contraseña"
+        placeholder="Contraseña del panteón"
         disabled={state.isLoading}
         style={inputStyle}
       />
 
       {state.error && (
-        <p style={{ margin: 0, fontSize: 13, color: '#ef4444' }}>
+        <p style={{ margin: 0, fontSize: 13, color: '#f87171' }}>
           {state.error}
         </p>
       )}
@@ -46,17 +46,17 @@ export default function LoginForm() {
         disabled={state.isLoading || !email || !password}
         style={{
           padding: '10px',
-          background: state.isLoading ? '#93c5fd' : '#0070f3',
+          background: state.isLoading ? '#5b21b6' : '#7c3aed',
           color: '#fff', border: 'none', borderRadius: 6,
           cursor: state.isLoading ? 'not-allowed' : 'pointer',
           fontWeight: 500,
         }}
       >
-        {state.isLoading ? 'Entrando...' : 'Iniciar sesión'}
+        {state.isLoading ? 'Invocando acceso...' : 'Iniciar sesión en la cripta'}
       </button>
 
       <p style={{ margin: 0, fontSize: 12, color: '#9ca3af' }}>
-        Prueba con error@test.com para ver el manejo de errores
+        Prueba con error@test.com para ver el rechazo espectral
       </p>
     </form>
   )
@@ -64,7 +64,10 @@ export default function LoginForm() {
 
 const inputStyle = {
   padding: '8px 12px',
-  border: '1px solid #d1d5db',
+  border: '1px solid #374151',
   borderRadius: 6,
   fontSize: 14,
+  backgroundColor: '#0b0f19',
+  color: '#d1d5db',
+  boxSizing: 'border-box' as const,
 }

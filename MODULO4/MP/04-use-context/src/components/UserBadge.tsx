@@ -8,7 +8,7 @@ export default function UserBadge() {
   if (!state.user) {
     return (
       <span style={{ fontSize: 13, color: '#9ca3af' }}>
-        No autenticado
+        Alma no autenticada
       </span>
     )
   }
@@ -20,20 +20,20 @@ export default function UserBadge() {
     .toUpperCase()
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#d1d5db' }}>
       <div style={{
         width: 34, height: 34, borderRadius: '50%',
-        background: '#6366f1', color: '#fff',
+        background: '#7c3aed', color: '#fff',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontWeight: 700, fontSize: 13,
       }}>
         {initials}
       </div>
       <div>
-        <p style={{ margin: 0, fontSize: 14, fontWeight: 600 }}>
+        <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#f3f4f6' }}>
           {state.user.name}
         </p>
-        <p style={{ margin: 0, fontSize: 12, color: '#9ca3af' }}>
+        <p style={{ margin: 0, fontSize: 12, color: '#a78bfa' }}>
           {state.user.role}
         </p>
       </div>
@@ -41,12 +41,12 @@ export default function UserBadge() {
         onClick={logout}
         style={{
           marginLeft: 8, padding: '4px 10px',
-          background: 'none', border: '1px solid #d1d5db',
+          background: '#1f2937', border: '1px solid #4b5563',
           borderRadius: 6, cursor: 'pointer',
-          fontSize: 12, color: '#6b7280',
+          fontSize: 12, color: '#d1d5db',
         }}
       >
-        Salir
+        Despertar / Salir
       </button>
     </div>
   )

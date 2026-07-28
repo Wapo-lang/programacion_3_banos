@@ -5,8 +5,8 @@ import { z }        from 'zod'
 
 // 1. Definir el schema — es la única fuente de verdad
 const RegisterSchema = z.object({
-  fullName:  z.string().min(2, 'Mínimo 2 caracteres'),
-  email:     z.string().email('Introduce un email válido'),
+  fullName:  z.string().min(2, 'Mínimo 2 caracteres en el nombre espectral'),
+  email:     z.string().email('Introduce un email válido para la cripta'),
   password:  z.string()
     .min(8, 'Mínimo 8 caracteres')
     .regex(/[A-Z]/, 'Debe contener al menos una mayúscula')
@@ -19,7 +19,7 @@ const RegisterSchema = z.object({
     .max(new Date().getFullYear() - 18, 'Debes ser mayor de edad'),
 }).refine(
   (data) => data.password === data.confirm,
-  { message: 'Las contraseñas no coinciden', path: ['confirm'] }
+  { message: 'Las contraseñas no coinciden en el rito', path: ['confirm'] }
 )
 
 // 2. Inferir el tipo desde el schema — sin duplicar la interface
@@ -80,11 +80,13 @@ export default function ZodRegistrationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 360 }}
+      style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 400, margin: '0 auto', padding: 24, backgroundColor: '#131c2e', borderRadius: 10, border: '1px solid #374151', color: '#d1d5db' }}
     >
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: '#f3f4f6', marginBottom: 4 }}>Invocación y Registro</h2>
+      
       {success && (
-        <div style={{ padding: 12, background: '#dcfce7', borderRadius: 6, color: '#166534' }}>
-          ✅ Registro completado
+        <div style={{ padding: 12, background: '#064e3b', borderRadius: 6, color: '#34d399', border: '1px solid #059669', fontSize: 14, fontWeight: 600 }}>
+          ✅ Registro completado en el panteón
         </div>
       )}
 
@@ -129,31 +131,31 @@ export default function ZodRegistrationForm() {
 
       {/* Rol */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 13, fontWeight: 500, color: '#374151' }}>Rol</label>
+        <label style={{ fontSize: 13, fontWeight: 500, color: '#9ca3af' }}>Rol espectral</label>
         <select
           value={values.role}
           onChange={(e) =>
             handleChange('role', e.target.value as RegisterFormData['role'])
           }
-          style={{ padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 6 }}
+          style={{ padding: '10px 12px', border: '1px solid #374151', borderRadius: 6, backgroundColor: '#0b0f19', color: '#d1d5db', outline: 'none' }}
         >
-          <option value="viewer">Viewer</option>
-          <option value="editor">Editor</option>
-          <option value="admin">Admin</option>
+          <option value="viewer">Viewer (Observador)</option>
+          <option value="editor">Editor (Invocador)</option>
+          <option value="admin">Admin (Gran Maestro)</option>
         </select>
         {errors.role && <p style={errorStyle}>{errors.role}</p>}
       </div>
 
       {/* Año de nacimiento */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 13, fontWeight: 500, color: '#374151' }}>
+        <label style={{ fontSize: 13, fontWeight: 500, color: '#9ca3af' }}>
           Año de nacimiento
         </label>
         <input
           type="number"
           value={values.birthYear}
           onChange={(e) => handleChange('birthYear', Number(e.target.value))}
-          style={{ padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 6 }}
+          style={{ padding: '10px 12px', border: '1px solid #374151', borderRadius: 6, backgroundColor: '#0b0f19', color: '#d1d5db', outline: 'none' }}
         />
         {errors.birthYear && <p style={errorStyle}>{errors.birthYear}</p>}
       </div>
@@ -161,11 +163,12 @@ export default function ZodRegistrationForm() {
       <button
         type="submit"
         style={{
-          padding: '10px', background: '#0070f3', color: '#fff',
-          border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 500,
+          padding: '12px', background: '#7c3aed', color: '#fff',
+          border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 600,
+          fontSize: 14, marginTop: 8, transition: 'background 0.2s',
         }}
       >
-        Registrar
+        Registrar en la Cripta
       </button>
     </form>
   )
@@ -183,16 +186,19 @@ interface FormFieldProps {
 function FormField({ label, value, error, placeholder, type = 'text', onChange }: FormFieldProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <label style={{ fontSize: 13, fontWeight: 500, color: '#374151' }}>{label}</label>
+      <label style={{ fontSize: 13, fontWeight: 500, color: '#9ca3af' }}>{label}</label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         style={{
-          padding: '8px 12px', fontSize: 14,
-          border: `1px solid ${error ? '#ef4444' : '#d1d5db'}`,
+          padding: '10px 12px', fontSize: 14,
+          border: `1px solid ${error ? '#f87171' : '#374151'}`,
           borderRadius: 6,
+          backgroundColor: '#0b0f19',
+          color: '#d1d5db',
+          outline: 'none',
         }}
       />
       {error && <p style={errorStyle}>{error}</p>}
@@ -200,4 +206,4 @@ function FormField({ label, value, error, placeholder, type = 'text', onChange }
   )
 }
 
-const errorStyle = { margin: 0, fontSize: 12, color: '#ef4444' }
+const errorStyle = { margin: 0, fontSize: 12, color: '#f87171' }
