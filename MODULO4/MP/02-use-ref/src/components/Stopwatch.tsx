@@ -36,27 +36,27 @@ export default function Stopwatch() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-      <p style={{ fontFamily: 'monospace', fontSize: 36, margin: 0, letterSpacing: 4 }}>
+      <p style={{ fontFamily: 'monospace', fontSize: 36, margin: 0, letterSpacing: 4, color: '#34d399', textShadow: '0 0 10px rgba(52, 211, 153, 0.4)' }}>
         {minutes}:{seconds}
       </p>
       <div style={{ display: 'flex', gap: 8 }}>
         <button
           onClick={handleStart}
           disabled={running}
-          style={btnStyle('#22c55e')}
+          style={btnStyle('#065f46')}
         >
           Iniciar
         </button>
         <button
           onClick={handleStop}
           disabled={!running}
-          style={btnStyle('#f59e0b')}
+          style={btnStyle('#92400e')}
         >
           Pausar
         </button>
         <button
           onClick={handleReset}
-          style={btnStyle('#6b7280')}
+          style={btnStyle('#374151')}
         >
           Reset
         </button>
@@ -69,8 +69,8 @@ function btnStyle(bg: string) {
   return {
     padding: '8px 16px',
     background: bg,
-    color: '#fff',
-    border: 'none',
+    color: '#d1d5db',
+    border: '1px solid #4b5563',
     borderRadius: 6,
     cursor: 'pointer',
     fontWeight: 500,

@@ -17,16 +17,16 @@ export default function PreviousValue() {
       <input
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Escribe algo..."
-        style={{ padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 6 }}
+        placeholder="Escribe epitafio..."
+        style={{ padding: '8px 12px', border: '1px solid #374151', borderRadius: 6, backgroundColor: '#0b0f19', color: '#d1d5db', boxSizing: 'border-box' }}
       />
 
       <div style={{ display: 'flex', gap: 16, fontSize: 14 }}>
-        <p style={{ margin: 0 }}>
-          Actual: <strong>{text || '—'}</strong>
+        <p style={{ margin: 0, color: '#d1d5db' }}>
+          Actual: <strong style={{ color: '#34d399' }}>{text || '—'}</strong>
         </p>
-        <p style={{ margin: 0, color: '#6b7280' }}>
-          Anterior: <strong>{previousRef.current || '—'}</strong>
+        <p style={{ margin: 0, color: '#9ca3af' }}>
+          Anterior (Espectral): <strong style={{ color: '#a78bfa' }}>{previousRef.current || '—'}</strong>
         </p>
       </div>
     </div>
