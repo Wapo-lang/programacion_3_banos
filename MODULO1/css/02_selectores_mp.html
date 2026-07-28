@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3er Semestre — Registro de Almas y Selectores</title>
+    <link rel="stylesheet" href="02_selectores_mp.css">
+</head>
+<body>
+
+    <h1 style="color: #612c2c;">CRÓNICAS DEL CAMPOSANTO: SELECTORES</h1>
+    
+    <h3>Gárgolas del Portal (Selector de etiqueta: afecta a todos los h3)</h3>
+    
+    <p class="epitafios">"Polvo eres y en polvo te convertirás" (Selector de clase: afecta a la clase .epitafios)</p>
+    
+    <div class="tumba-card">
+        <h2 class="difunto-nombre">Conde Vladislao</h2>
+        <span class="cripta-estado">Estado: Ocupada (Perpetuidad)</span>
+    </div>
+    
+    <p id="cripta-ancestral">Mausoleo de la Familia Real (Selector de ID: único e irrepetible en este plano)</p>
+    
+    <p>Ánima errante sin rumbo (Probando Selector Universal: heredará la neblina general)</p>
+    
+    <p style="color: #816223; font-weight: bold;">Senderos y Linajes (Selectores Combinados / Descendientes)</p>
+    
+    <ul class="mausoleo-lista">
+        <li>Piso Principal (Cripta de Honor)</li>
+        <li>Subterráneos
+            <ul>
+                <li>Fosa Común</li>
+                <li>Osario Viejo</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="sendero-oscuro">
+        <a href="#altar">Altar Mayor (Hijo directo del sendero)</a>
+        <div>
+            <a href="#catacumbas">Fosa Profunda (Descendiente, oculta tras una pared)</a>
+        </div>
+    </div>
+
+    <h4>Lápida de Piedra (Elemento base de referencia)</h4>
+    <h5>Estatua de Ángel (Hermano adyacente directo: pegado a la lápida)</h5>
+    <h6>Maleza Silvestre (Hermano general: en la misma fila, más allá)</h6>
+
+    <p class="profanador">Advertencia: Los profanadores serán entregados a los cuervos (Clase + Etiqueta)</p>
+
+    <button class="btn-consagrar">Consagrar Tumba</button>
+    <button class="btn-exhumar">Exhumar Restos</button>
+
+</body>
+</html>

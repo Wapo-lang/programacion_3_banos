@@ -1,0 +1,113 @@
+/* ==========================================================================
+   AMBIENTACIÓN BASE
+   ========================================================================== */
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #0b0d12;
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #ec4899; /* Rosa místico / espectral */
+  font-size: 2rem;
+  border-bottom: 2px dashed #1e293b;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   ESTILOS COMPONENTES (Navbar y Filtros)
+   ========================================================================== */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  background-color: #11141d;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.navbar-links a {
+  color: #94a3b8;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  color: #ec4899;
+}
+
+.filtros-categoria {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filtros-categoria button {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
+}
+
+.filtros-categoria button:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   EL COMPORTAMIENTO WRAP Y ALIGN-CONTENT
+   ========================================================================== */
+.panteon-grid-dinamica {
+  display: flex;
+  
+  /* flex-wrap: Por defecto es 'nowrap' (lo que comprimiría o desbordaría los elementos 
+     en una sola fila horizontal infinitamente). 
+     Con 'wrap', si los nichos superan el ancho del contenedor, bajan ordenadamente a la siguiente línea. */
+  flex-wrap: wrap;
+  
+  /* gap: Controla la separación entre las columnas y las filas generadas por el wrap */
+  gap: 1.5rem;
+  
+  /* align-content: Controla la alineación de las FILAS ENTERAS dentro del contenedor 
+     (Nota: Solo funciona si hay más de una fila creada por el wrap y el contenedor tiene un height asignado).
+     
+     Opciones sagradas para probar aquí:
+     - center: Agrupa todas las líneas en el centro vertical de la bóveda.
+     - space-between: Primera fila al techo, última al suelo, reparte el resto.
+     - space-around: Distribuye el espacio alrededor de cada fila. */
+  align-content: center; 
+  
+  background-color: #11141d;
+  border: 1px solid #1e293b;
+  padding: 1.5rem;
+  min-height: 450px; /* Altura forzada para poder apreciar el efecto de align-content */
+  border-radius: 4px;
+}
+
+/* Cada nicho individual */
+.nicho-bloque {
+  background-color: #581c87; /* Púrpura tumba */
+  color: #f472b6;
+  border: 2px solid #7e22ce;
+  
+  /* Asignamos un ancho base rígido. Al haber 8 elementos de 150px (1200px totales + gaps), 
+     es seguro que se romperán en múltiples filas en la mayoría de monitores. */
+  width: 150px;
+  height: 90px;
+  
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}

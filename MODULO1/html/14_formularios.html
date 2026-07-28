@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces</title>
+</head>
+<body>
+    <h1> Formularios</h1>
+    <form action="/procesar" method="post"> 
+        <table>
+            <tr> 
+
+                <td> 
+                    <label for="nombre"> Nombre </label>
+                    <input type=" text " id="nombre" name="nombre">
+                </td>
+                <td>   
+                    <label for="nombre"> Correo Electronico </label>
+                    <input type="email" id="email" name="email">
+                </td>
+            </tr>
+            <tr> 
+
+                <td> 
+                    <label for="nombre"> Contraseña </label> 
+                    <input type="password" id="password" name="Contraseña"> <br>
+                </td>
+                <td>
+                    <label for="url"> Sitio Web </label> 
+                    <input type="url" id="url" name="url">
+                </td>
+                
+            </tr>
+            <tr> 
+
+                <td> 
+                    <label for="nombre"> Telefono </label> 
+                    <input type="tel" id="telefono" name="telefono"> <br>
+                </td>
+                <td>
+                    <label for="buscar"> Buscar </label> 
+                    <input type="buscar" id="Buscar" name="buscar">
+                </td>
+                
+            </tr>
+
+            <!-- Tipos Numericos-->
+
+            <tr> 
+
+                <td> 
+                    <label for="edad"> Edad </label> 
+                    <input type="edad" id="edad" name="edad" min="0" max="120" step="1"> <br>
+                </td>
+                <td>
+                    <label for="volumen"> Volumen <span id="val-vol">50</span>></label><br></label> 
+                    <input type="range" id="volumen" name="volumen" min="0" max="120" value="50"
+                    oninput="document.getElementById('val-vol').textContent=this.value">
+               </td>
+            </tr>
+
+            <tr> 
+                <td> 
+                    <label for="fecha"> Fecha de Nacimiento </label> 
+                    <input type="date" id="fecha" name="fecha"> <br>
+                </td>
+                <td>
+                    <label for="hora"> Hora de Cita </label> 
+                    <input type="time" id="hora" name="hora">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="evento"> Inicio del Evento </label><br>
+                    <input type="datetime-local" id="evento" name="evento">
+                </td>
+
+                <tr>
+                    <td colspan="2">
+                        <h3> Checkbox y Option</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="acepto" name="acepto" value="si">
+                        <label for="acepto"> Acepto los terminos y condiciones </label>
+                    </td>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                Metodo de pago
+                            </legend>
+                            <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+                            <label for="tarjeta"> Tarjeta de Credito </label><br>
+                            <input type="radio" id="paypal" name="pago" value="paypal">
+                            <label for="paypal"> Paypal </label><br>
+                            <input type="radio" id="transferencia" name="pago" value="transferencia">
+                            <label for="transferencia"> Transferencia Bancaria </label><br>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="color">Color</label><br>
+                        <input type="color" id="color" name="color" value="#ff0000">
+                    </td>
+                    <td>
+                        <label for="foto"> Foto de perfil </label>
+                        <input type="file" id="foto" name="foto" value="imade/">
+                        <input type="hidden" id="token" name="token" value="abc123xyz">
+                    </td>
+                </tr>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3> Select y Textarea </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mensaje"> Mensaje </label><br>
+                    <textarea id="mensaje"
+                        name="mensaje" 
+                        rows="4" 
+                        cols="50" 
+                        placeholder="Escribe tu mensaje aqui...">
+                    </textarea>
+                </td>
+                <td>
+                    <!-- Select basico -->
+                     <label for="pais"> Pais</label><br>
+                    <select id="pais" name="pais">
+                        <option value="">--Selecciona un pais--</option>
+                        <option value="mexico"> Mexico </option>
+                        <option value="usa"> Estados Unidos </option>
+                        <option value="canada"> Canada </option>
+                        <option value="ecuador"> Ecuador </option>
+                    </select>
+                    <label for="ciudad"> Ciudad </label><br>
+                    <select id="ciudad" name="ciudad">
+                        <option value="">--Selecciona una ciudad--</option>
+                        <option value="cdmx"> Ciudad de Mexico </option>
+                        <option value="nyc"> Nueva York </option>
+                        <option value="toronto"> Toronto </option>
+                        <option value="quito"> Quito </option>
+                    </select>
+                </td>
+                <td>
+                    <!-- Select multiple -->
+                    <label for="intereses"> Intereses </label><br>
+                    <select id="intereses" name="intereses" multiple size="4">
+                        <option value="deportes"> Deportes </option>
+                        <option value="musica"> Musica </option>
+                        <option value="tecnologia"> Tecnologia </option>
+                        <option value="arte"> Arte </option>
+                    </select>
+            </tr>
+        </table>
+
+
+        
+        <button type="submit"> Enviar </button>
+        <button type="reset"> Limpiar </button>
+        <button type="button"> Aceptar </button>
+
+
+    </form>
+</body>
+</html>

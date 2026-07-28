@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cementerio del DOM - Registro de Espectros y Empleados</title>
+    <script src="dom13-crud_trabajo_mp.js" defer></script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #d1d5db;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            max-width: 1280px;
+            line-height: 1.5;
+        }
+        h1 {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+        h2 {
+            color: #34d399;
+            margin-bottom: 18px;
+        }
+        #stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 18px 0 22px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+        }
+        th, td {
+            border: 1px solid #374151;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #131c2e;
+            color: #34d399;
+        }
+        tr:nth-child(even) {
+            background-color: #0f172a;
+        }
+        tr:nth-child(odd) {
+            background-color: #0b0f19;
+        }
+        .formulario {
+            background-color: #131c2e;
+            border: 1px solid #7c3aed;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .formulario input {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-agregar:hover {
+            background-color: #059669 !important;
+            color: white;
+        }
+        .btn-cancelar:hover {
+            background-color: #dc2626 !important;
+            color: white;
+        }
+        .stat-card, .stats-card {
+            background-color: #131c2e;
+            border: 1px solid #374151;
+            padding: 20px;
+            flex: 1 1 220px;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+        .stat-card h3, .stats-card h3 {
+            margin-top: 0;
+            color: #a78bfa;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            color: #34d399;
+        }
+        input {
+            display: block;
+            width: min(420px, 100%);
+            padding: 8px;
+            margin-bottom: 14px;
+            box-sizing: border-box;
+            background-color: #131c2e;
+            border: 1px solid #374151;
+            color: white;
+            border-radius: 6px;
+        }
+        button {
+            margin-right: 8px;
+            margin-top: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        #btnAgregar {
+            background-color: #7c3aed;
+            color: white;
+        }
+        #btnCancelar {
+            background-color: #374151;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Espectros y Registro en el DOM 🪦</h1>
+    <h2>CRUD de Guardianes y Empleados de la Cripta 🕯️</h2>
+    
+    <label for="nombre">Nombre del Guardián:</label>
+    <input type="text" id="nombre" placeholder="Nombre del empleado...">
+    
+    <label for="apellido">Apellido del Guardián:</label>
+    <input type="text" id="apellido" placeholder="Apellido del empleado...">
+    
+    <label for="salario">Ofrenda / Salario:</label>
+    <input type="number" id="salario" placeholder="Salario del empleado...">
+    
+    <button id="btnAgregar" class="btn-agregar">Agregar Empleado</button>
+    <button id="btnCancelar" class="btn-cancelar">Cancelar</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Salario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+        </tbody>
+    </table>
+
+</body>
+</html>

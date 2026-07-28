@@ -1,0 +1,52 @@
+/* ==========================================================================
+   PURIFICACIÓN DE ALMAS (Reset General)
+   ========================================================================== */
+/* Se aplica a todos los elementos del plano, incluyendo sus espectros antes y después.
+   Asegura que el grueso de los muros (border) y el espacio interior (padding) no expandan 
+   los límites de la fosa asignada en el modelo de caja. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   EL CUERPO DEL CAMPOSANTO (Estilos Base)
+   ========================================================================== */
+body {
+  font-family: 'Cinzel', 'Georgia', serif; /* Tipografía solemne para lápidas */
+  line-height: 1.5;                         /* Espaciado sagrado entre líneas de epitafios */
+  color: #1a1a2e;                           /* Tinta de azabache profundo */
+  background-color: #0c0e14;                /* Sombra de medianoche perpetua */
+}
+
+/* ==========================================================================
+   RETRATOS Y MONUMENTOS
+   ========================================================================== */
+/* Evita que los retratos de los difuntos o gárgolas se desborden de su nicho 
+   y las despoja de su comportamiento inline para alinearlas como bloques rígidos. */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   NEXOS Y SENDEROS
+   ========================================================================== */
+/* Despoja a los enlaces de su subrayado mundano y les permite heredar el color 
+   del sector del cementerio en el que se encuentren recluidos. */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   REGISTROS PARROQUIALES
+   ========================================================================== */
+/* Remueve las viñetas y números por defecto de las listas de sepelios o árboles 
+   genealógicos para que el guardián tome el control absoluto de su diseño. */
+ul, ol {
+  list-style: none;
+}

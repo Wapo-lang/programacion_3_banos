@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Inhumación y Reserva de Criptas</title>
+</head>
+<body>
+    <h1>Registro del Camposanto</h1>
+    <form action="/procesar-difunto" method="post"> 
+        <table>
+            <tr> 
+                <td> 
+                    <label for="nombre">Nombre del Solicitante</label>
+                    <input type="text" id="nombre" name="nombre">
+                </td>
+                <td>   
+                    <label for="email">Correo Electrónico de Contacto</label>
+                    <input type="email" id="email" name="email">
+                </td>
+            </tr>
+            <tr> 
+                <td> 
+                    <label for="password">Clave de Acceso a Archivos</label> 
+                    <input type="password" id="password" name="contrasena">
+                </td>
+                <td>
+                    <label for="url">Memorial Digital (URL)</label> 
+                    <input type="url" id="url" name="url">
+                </td>
+            </tr>
+            <tr> 
+                <td> 
+                    <label for="telefono">Teléfono de Emergencia</label> 
+                    <input type="tel" id="telefono" name="telefono">
+                </td>
+                <td>
+                    <label for="buscar">Buscar En El Registro General</label> 
+                    <input type="search" id="buscar" name="buscar">
+                </td>
+            </tr>
+
+            <tr> 
+                <td> 
+                    <label for="edad">Edad del Fallecido</label> 
+                    <input type="number" id="edad" name="edad" min="0" max="120" step="1">
+                </td>
+                <td>
+                    <label for="neblina">Intensidad de Neblina Requerida <span id="val-neb">50</span>%</label><br> 
+                    <input type="range" id="neblina" name="neblina" min="0" max="120" value="50"
+                           oninput="document.getElementById('val-neb').textContent=this.value">
+                </td>
+            </tr>
+            <tr> 
+                <td> 
+                    <label for="fecha">Fecha de Defunción</label> 
+                    <input type="date" id="fecha" name="fecha">
+                </td>
+                <td>
+                    <label for="hora">Hora de la Ceremonia</label> 
+                    <input type="time" id="hora" name="hora">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="evento">Inicio de la Vigilia Nocturna</label><br>
+                    <input type="datetime-local" id="evento" name="evento">
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>Servicios Adicionales y Pagos</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="acepto" name="acepto" value="si">
+                    <label for="acepto">Acepto los términos de descanso eterno y cuidado de la tumba</label>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>Método de Pago de Tasas Funerarias</legend>
+                        <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+                        <label for="tarjeta">Monedas de Oro</label><br>
+                        <input type="radio" id="paypal" name="pago" value="paypal">
+                        <label for="paypal">Transferencia Bancaria</label><br>
+                        <input type="radio" id="transferencia" name="pago" value="transferencia">
+                        <label for="transferencia">Trueque de Tierras</label><br>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="color">Color del Terciopelo del Féretro</label><br>
+                    <input type="color" id="color" name="color" value="#ff0000">
+                </td>
+                <td>
+                    <label for="foto">Copia del Acta de Defunción (PDF/Imagen)</label>
+                    <input type="file" id="foto" name="foto">
+                    <input type="hidden" id="token" name="token" value="abc123xyz">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>Epitafio e Información Geográfica</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mensaje">Texto del Epitafio (Grabado en Piedra)</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Escribe las últimas palabras aquí..."></textarea>
+                </td>
+                <td>
+                    <label for="pais">País de Origen</label><br>
+                    <select id="pais" name="pais">
+                        <option value="">--Selecciona un país--</option>
+                        <option value="mexico">México</option>
+                        <option value="usa">Estados Unidos</option>
+                        <option value="canada">Canadá</option>
+                        <option value="ecuador">Ecuador</option>
+                    </select>
+                    <br>
+                    <label for="ciudad">Mausoleo Asignado (Ciudad)</label><br>
+                    <select id="ciudad" name="ciudad">
+                        <option value="">--Selecciona una ubicación--</option>
+                        <option value="cdmx">Panteón Dolores (CDMX)</option>
+                        <option value="nyc">Cementerio de Green-Wood (NYC)</option>
+                        <option value="toronto">Cementerio de St. James (Toronto)</option>
+                        <option value="quito">Cementerio de San Diego (Quito)</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="elementos">Elementos de Ofrenda</label><br>
+                    <select id="elementos" name="intereses" multiple size="4">
+                        <option value="velas">Velas Negras</option>
+                        <option value="flores">Flores de Cempasúchil</option>
+                        <option value="incienso">Incienso de Copal</option>
+                        <option value="agua">Agua Bendita</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit">Sellar Registro</button>
+        <button type="reset">Limpiar Campos</button>
+        <button type="button">Verificar Disponibilidad</button>
+    </form>
+</body>
+</html>

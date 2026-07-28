@@ -1,0 +1,172 @@
+/* ==========================================================================
+   VARIABLES DE LA CRIPTA (Pociones de Color Base)
+   ========================================================================== */
+:root {
+  --color-sacro: #8b5cf6; /* Morado ritual base */
+  --tierra-profunda: #111827;
+  --piedra-ancestral: #4b5563;
+}
+
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #090b0f;
+  color: #f3f4f6;
+  padding: 2rem; /* Elástico: se adapta al tamaño de fuente del sistema */
+}
+
+/* ==========================================================================
+   1. UNIDADES DE MEDIDA (Absolutas vs Relativas)
+   ========================================================================== */
+/* px: Unidad rígida. Si el usuario cambia el zoom o tamaño de fuente, no escala. */
+.tumba-fija {
+  width: 400px;
+  background-color: #2d1616;
+  border: 1px solid #991b1b;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+
+/* rem: Unidad elástica basada en la raíz (html). 1rem suele equivaler a 16px.
+   Mantiene una proporción perfecta para la accesibilidad. */
+.tumba-dinamica {
+  width: 25rem; /* 25 * 16px = 400px de base, pero totalmente escalable */
+  background-color: #162d21;
+  border: 1px solid #065f46;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   2. TRUCO CHECKBOX: MENÚ DESPLEGABLE SIN JAVASCRIPT
+   ========================================================================== */
+.header-cripta {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Escondemos el input del plano material sin destruir su accesibilidad */
+#toggle-menu {
+  display: none;
+}
+
+.btn-mecanismo {
+  display: inline-block;
+  background-color: #374151;
+  color: #e5e7eb;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+  user-select: none;
+}
+
+/* El pasadizo inicia completamente sellado en altura */
+.pasadizo-desplegable {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #111827;
+  transition: max-height 0.4s ease-out; /* Transición suave de apertura */
+}
+
+.pasadizo-desplegable ul {
+  padding: 1rem;
+}
+
+.pasadizo-desplegable li {
+  margin-bottom: 0.75rem;
+}
+
+/* MAGIA CSS: Cuando el checkbox es seleccionado (:checked), 
+   buscamos a su hermano general (~) con la clase del pasadizo y lo abrimos */
+#toggle-menu:checked ~ .pasadizo-desplegable {
+  max-height: 200px; /* Permite que el contenido se deslice hacia abajo */
+  border-bottom: 2px solid var(--color-sacro);
+}
+
+/* ==========================================================================
+   3. ALQUIMIA DE COLOR: COLOR-MIX()
+   ========================================================================== */
+.recinto-contenedor {
+  margin-top: 3rem;
+}
+
+/* Mezcla un 30% del morado místico con un 70% de blanco puro */
+.btn-ritual-suave {
+  background-color: color-mix(in srgb, var(--color-sacro) 30%, #ffffff);
+  color: #2e1065;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Mezcla un 60% del morado místico con un 40% de negro profundo */
+.btn-ritual-oscuro {
+  background-color: color-mix(in srgb, var(--color-sacro) 60%, #000000);
+  color: #f3f4f6;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-sacro);
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Gradiente sólido usando color-mix para generar el punto de corte intermedio */
+.muro-solido {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(
+    90deg, 
+    var(--color-sacro) 50%, 
+    color-mix(in srgb, var(--color-sacro) 50%, #000) 50%
+  );
+}
+
+/* ==========================================================================
+   4. ESTRUCTURAS COMPLEMENTARIAS Y VIEWPORT
+   ========================================================================== */
+.nicho-visual {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #374151;
+  margin-top: 1.5rem;
+  border-radius: 4px;
+}
+
+/* Capas transparentes calculadas matemáticamente en el espacio de color */
+.niebla-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--color-sacro) 20%, transparent);
+  padding: 1rem;
+}
+
+.niebla-overlay-oscura {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, #000000 75%, transparent);
+  padding: 1rem;
+}
+
+/* Unidades de Pantalla (Viewport Units)
+   vh: Viewport Height (Porcentaje del alto de la pantalla)
+   vw: Viewport Width (Porcentaje del ancho de la pantalla) */
+.monumento-hero {
+  height: 50vh; /* Toma exactamente la mitad de la altura total del visor */
+  width: 80vw;  /* Ocupa el 80% del ancho del visor */
+  background-color: #1e1b4b;
+  border: 2px dashed var(--color-sacro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.sector-destacados {
+  min-height: 30vh;
+  background-color: #1f2937;
+  padding: 2rem;
+}

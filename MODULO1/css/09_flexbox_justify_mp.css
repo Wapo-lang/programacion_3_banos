@@ -1,0 +1,88 @@
+/* ==========================================================================
+   ENTORNO FUNERARIO BASE
+   ========================================================================== */
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #0b0d12;
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #a855f7; /* Púrpura nigromante */
+  font-size: 2rem;
+  border-bottom: 2px dashed #334155;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #38bdf8; /* Azul espectral */
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Contenedor padre base (La fosa/cripta alargada) */
+.cripta-pasadizo-flex {
+  display: flex; /* Convierte al contenedor en un eje Flexbox */
+  background-color: #11141d; /* Fondo interior de la fosa */
+  border: 1px solid #1e293b;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Cajas hijas (Los ataúdes numerados) */
+.ataud-item {
+  background-color: #1e1b4b; /* Azul noche profundo */
+  color: #6366f1;
+  border: 2px solid #4338ca;
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex; /* Usamos flex interno para centrar el número */
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   LAS 6 VARIANTES DE ALINEACIÓN (EJE HORIZONTAL)
+   ========================================================================== */
+
+/* flex-start: Los elementos se apilan al principio de la línea (izquierda).
+   Es el comportamiento por defecto de flexbox. */
+.inicio {
+  justify-content: flex-start;
+}
+
+/* flex-end: Los elementos se empujan hacia el final de la línea (derecha). */
+.fin {
+  justify-content: flex-end;
+}
+
+/* center: Todos los elementos se agrupan exactamente en el centro geométrico. */
+.centro {
+  justify-content: center;
+}
+
+/* space-between: El primer elemento toca el borde izquierdo, el último toca el derecho.
+   El espacio restante se distribuye únicamente en los huecos intermedios. */
+.between {
+  justify-content: space-between;
+}
+
+/* space-around: Reparte el espacio a la izquierda y derecha de cada elemento por igual.
+   Esto causa que el espacio en los extremos laterales sea exactamente la mitad 
+   del espacio que se forma entre dos cajas consecutivas. */
+.around {
+  justify-content: space-around;
+}
+
+/* space-evenly: Distribuye el espacio disponible de manera que la distancia entre 
+   cualquier par de elementos adyacentes, y los bordes con los elementos, sea idéntica. */
+.evenly {
+  justify-content: space-evenly;
+}

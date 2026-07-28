@@ -1,0 +1,152 @@
+.producto-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #28ce5a;
+  border-radius: 8px;
+  margin: 16px;
+  background-color: #3979a0;
+}
+.producto-card {
+  /* Un valor: los 4 lados */
+  padding: 20px;
+  /* Dos valores: vertical | horizontal */
+  padding: 10px 20px;
+  /* Tres valores: top | horizontal | bottom */
+  padding: 10px 20px 15px;
+  /* Cuatro valores: top | right | bottom | left */
+  padding: 10px 20px 15px 20px;
+}
+/* Sin border-box */
+.producto-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #6aa521;
+  /* Ancho real: 280 + 20+20 + 1+1 = 322px ← sorpresa */
+}
+
+/* Con border-box: el width incluye padding y border */
+* {
+  box-sizing: border-box;
+}
+
+.producto-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* Ancho real: 280px ← predecible */
+}
+
+/* Ejemplos para item-card */
+.item-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #28ce5a;
+  border-radius: 8px;
+  margin: 16px;
+  background-color: #3979a0;
+}
+.item-card {
+  /* Un valor: los 4 lados */
+  padding: 20px;
+  /* Dos valores: vertical | horizontal */
+  padding: 10px 20px;
+  /* Tres valores: top | horizontal | bottom */
+  padding: 10px 20px 15px;
+  /* Cuatro valores: top | right | bottom | left */
+  padding: 10px 20px 15px 20px;
+}
+/* Sin border-box */
+.item-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #6aa521;
+  /* Ancho real: 280 + 20+20 + 1+1 = 322px ← sorpresa */
+}
+
+/* Con border-box: el width incluye padding y border */
+* {
+  box-sizing: border-box;
+}
+
+.item-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* Ancho real: 280px ← predecible */
+}
+
+.producto1-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #28ce5a;
+  border-radius: 8px;
+  margin: 16px;
+  background-color: #3979a0;
+}
+.producto1-card {
+  /* Un valor: los 4 lados */
+  padding: 20px;
+  /* Dos valores: vertical | horizontal */
+  padding: 10px 20px;
+  /* Tres valores: top | horizontal | bottom */
+  padding: 10px 20px 15px;
+  /* Cuatro valores: top | right | bottom | left */
+  padding: 10px 20px 15px 20px;
+}
+/* Sin border-box */
+.producto1-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #6aa521;
+  /* Ancho real: 280 + 20+20 + 1+1 = 322px ← sorpresa */
+}
+
+/* Con border-box: el width incluye padding y border */
+* {
+  box-sizing: border-box;
+}
+
+.producto1-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* Ancho real: 280px ← predecible */
+}
+
+.producto2-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #28ce5a;
+  border-radius: 8px;
+  margin: 16px;
+  background-color: #3979a0;
+}
+.producto2-card {
+  /* Un valor: los 4 lados */
+  padding: 20px;
+  /* Dos valores: vertical | horizontal */
+  padding: 10px 20px;
+  /* Tres valores: top | horizontal | bottom */
+  padding: 10px 20px 15px;
+  /* Cuatro valores: top | right | bottom | left */
+  padding: 10px 20px 15px 20px;
+}
+/* Sin border-box */
+.producto2-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #6aa521;
+  /* Ancho real: 280 + 20+20 + 1+1 = 322px ← sorpresa */
+}
+
+/* Con border-box: el width incluye padding y border */
+* {
+  box-sizing: border-box;
+}
+
+.producto2-card {
+  width: 280px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* Ancho real: 280px ← predecible */
+}

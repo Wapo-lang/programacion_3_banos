@@ -1,0 +1,98 @@
+/* ==========================================================================
+   CONFIGURACIÓN TIPOGRÁFICA DEL CAMPOSANTO
+   ========================================================================== */
+body {
+  /* font-family: Define la fuente tipográfica y sus alternativas en caso de fallo */
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  padding: 2rem;
+  line-height: 1.6; /* Altura de línea para mejorar la legibilidad de las bitácoras */
+}
+
+/* ==========================================================================
+   PROPIEDADES DE FUENTE Y TEXTO
+   ========================================================================== */
+
+/* Títulos Principales: Usan la fuente ceremonial Cinzel */
+h1, h2, h3, .epitafios-titulos {
+  font-family: 'Cinzel', 'Georgia', serif;
+  color: #66fcf1; /* Brillo espectral */
+  /* font-weight: Grosor de la letra. 700 equivale a negrita (bold) */
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  /* font-size: Tamaño de la tipografía utilizando unidades relativas */
+  font-size: 2.5rem; 
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #45f3ff;
+}
+
+/* Ofrendas / Precios */
+.costo-ofrenda {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #10b981; /* Verde esmeralda místico */
+}
+
+/* Texto tachado para simular precios antiguos o profanados */
+.costo-antiguo {
+  font-size: 1.1rem;
+  color: #64748b;
+  /* text-decoration: Añade líneas decorativas (subrayado, tachado, etc.) */
+  text-decoration: line-through; 
+  margin-right: 0.5rem;
+}
+
+/* Transformaciones de Mayúsculas y Espaciados */
+.cripta-imperial {
+  font-size: 1.2rem;
+  color: #f59e0b; /* Oro viejo */
+  /* text-transform: Modifica el renderizado a mayúsculas, minúsculas o capitalizadas */
+  text-transform: uppercase; 
+  /* letter-spacing: Controla el espacio horizontal entre los caracteres (espaciado sutil) */
+  letter-spacing: 4px; 
+  font-weight: 500;
+}
+
+.epitafios-titulos {
+  font-size: 1.5rem;
+  /* text-align: Controla la alineación horizontal del texto dentro de su bloque */
+  text-align: center;
+  border: 1px double #1f2937;
+  padding: 1rem;
+  background-color: #11141d;
+}
+
+.cronica-seccion {
+  font-size: 1.3rem;
+  border-bottom: 2px solid #1f2937;
+  padding-bottom: 0.25rem;
+  /* text-transform: Capitaliza la primera letra de cada palabra */
+  text-transform: capitalize;
+}
+
+.descripcion-reliquia {
+  font-size: 1rem;
+  /* font-style: Permite inclinar el texto en cursiva (italic / oblique) */
+  font-style: italic;
+  color: #94a3b8;
+  max-width: 30rem;
+}
+
+/* Notas de pie de página / Epitafios menores */
+.clausura-legal {
+  /* font-size menor a 1rem reduce el tamaño con respecto a la raíz */
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin-top: 3rem;
+  text-align: right;
+  /* font-variant: Permite aplicar versalitas (small-caps) al texto */
+  font-variant: small-caps;
+}

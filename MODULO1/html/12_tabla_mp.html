@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros Oficiales y Tablas del Camposanto</title>
+</head>
+<body>
+
+    <h1>Inventario de Mausoleos</h1>
+    <table border="1">
+        <caption>Distribución de Capillas</caption>
+        <thead>
+            <tr>
+                <th>Sector</th>
+                <th>Capacidad</th>
+                <th>Estado</th>
+                <th>Estilo Arquitectónico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Panteón Real</td>
+                <td>12 ataúdes</td>
+                <td>Completo</td>
+                <td>Gótico</td>
+            </tr>
+            <tr>
+                <td>Ala de los Cipreses</td>
+                <td>50 criptas</td>
+                <td>Disponible</td>
+                <td>Clásico</td>
+            </tr>
+            <tr>
+                <td>Jardín del Descanso</td>
+                <td>100 urnas</td>
+                <td>Casi Lleno</td>
+                <td>Moderno</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+
+    <h1>Registro de Ocupantes (Uso de Scope)</h1>
+    <table border="1">
+        <caption>Bitácora de Almas Guardadas</caption>
+        <thead>
+            <tr>
+                <th scope="col">Código de Tumba</th>
+                <th scope="col">Fallecido</th>
+                <th scope="col">Año de Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">TMB-001</th>
+                <td>Mariano Melgar</td>
+                <td>1895</td>
+            </tr>
+            <tr>
+                <th scope="row">TMB-002</th>
+                <td>Isabel de la Cruz</td>
+                <td>1923</td>
+            </tr>
+            <tr>
+                <th scope="row">TMB-003</th>
+                <td>Julián Buendía</td>
+                <td>2011</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h1>Estructura de Costos (Celdas Combinadas)</h1>
+    <table border="1">
+        <caption>Servicios de Mantenimiento Funerario</caption>
+        <thead>
+            <tr>
+                <th colspan="2">Ubicación de la Fosa</th>
+                <th rowspan="2">Costo Anual (Monedas)</th>
+            </tr>
+            <tr>
+                <th>Sector</th>
+                <th>Fila</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tierra Común</td>
+                <td>Pasillo A</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Cripta Familiar</td>
+                <td>Subterráneo 2</td>
+                <td>350</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h1>Estadísticas de Visitantes y Estilos (Colgroup)</h1>
+    <table border="1">
+        <caption>Control de Ofrendas por Temporada</caption>
+        <colgroup>
+            <col style="background-color: #f2f2f2;"> <col style="background-color: #d9d9d9;"> <col style="background-color: #f2f2f2;"> <col style="background-color: #d9d9d9;"> </colgroup>
+        <thead>
+            <tr>
+                <th>Sector</th>
+                <th>Primavera</th>
+                <th>Otoño</th>
+                <th>Día de Muertos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sector Norte</td>
+                <td>450</td>
+                <td>300</td>
+                <td>1200</td>
+            </tr>
+            <tr>
+                <td>Sector Sur</td>
+                <td>200</td>
+                <td>150</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>Mausoleos</td>
+                <td>600</td>
+                <td>550</td>
+                <td>2500</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

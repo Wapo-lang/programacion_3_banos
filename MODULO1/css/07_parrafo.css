@@ -1,0 +1,47 @@
+.parrafo {
+    line-height: 1.6;
+}
+
+.titulo-producto {
+    line-height: 1.2;
+}
+
+.descripcion-larga {
+    line-height: 1.8;
+}
+
+.logo-tienda {
+    letter-spacing: 0.15cm;
+    text-transform: uppercase;
+}
+
+.etiqueta-categoria {
+    letter-spacing: 0.05cm;
+    letter-spacing: 0.1cm;
+}
+
+.banner-oferta    { text-align: center; }
+.descripcion      { text-align: left; }
+.precio-total     { text-align: right; }
+.texto-justificado { text-align: justify; } 
+.none-text-decoration { text-decoration: none; }
+.precio-anterior { 
+    text-decoration: line-through;
+    color: red;
+ }
+.link-destacado  { text-decoration: underline; }
+
+.logo-tienda      { text-transform: uppercase; }  /* TECHSTORE */
+.subtitulo        { text-transform: capitalize; } /* Cada Primera Mayúscula */
+.codigo-producto  { text-transform: lowercase; }  /* laptop-pro-x1 */
+
+.producto-nombre {
+  white-space: nowrap;      /* no permitir saltos de línea */
+  overflow: hidden;         /* ocultar lo que desborda */
+  text-overflow: ellipsis;  /* mostrar "..." al final */
+  max-width: 200px;
+}
+
+.alerta { color: red; }
+.exito  { color: green; }
+.info   { color: blue; }

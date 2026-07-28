@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cementerio del DOM - Cálculo Espectral</title>
+    <script src="dom10-suma_mp.js" defer></script>
+    <style>
+        .boton {
+            background-color: #7c3aed;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .boton:hover {
+            background-color: #6d28d9;
+        }
+        input[type="number"] {
+            background-color: #131c2e;
+            border: 1px solid #374151;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            width: 200px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #0b0f19; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px;">
+
+    <h1 id="titulo" style="color: #a78bfa; text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);"> Aritmética Espectral en el DOM 🪦</h1>
+    <h2 style="color: #34d399;"> Suma de Almas y Ofrendas (Suma de Números) 🕯️</h2>
+
+    <input id="campoNumero1" 
+        type="number"
+        placeholder="Ingrese el primer número...">
+    <input id="campoNumero2" 
+        type="number"
+        placeholder="Ingrese el segundo número...">
+    <button id="btn_sumar" class="boton"> 
+        Sumar Almas </button>
+    <ul id="resultado" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
+
+</body>
+
+</html>

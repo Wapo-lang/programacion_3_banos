@@ -1,0 +1,1 @@
+console.log("Bienvenido al ritual de invocación de mensajes en la consola con Node.js");

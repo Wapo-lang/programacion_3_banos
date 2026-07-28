@@ -1,0 +1,92 @@
+/* ==========================================================================
+   ENTORNO FUNERARIO BASE
+   ========================================================================== */
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #0b0d12;
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #14b8a6; /* Verde esmeralda espectral */
+  font-size: 2rem;
+  border-bottom: 2px dashed #1e293b;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* La Bóveda contenedora (Se asigna una altura fija de 150px para notar las alineaciones) */
+.cripta-boveda {
+  display: flex;
+  background-color: #11141d;
+  border: 1px solid #1e293b;
+  padding: 1rem;
+  height: 150px; 
+  gap: 1.5rem;
+  border-radius: 4px;
+}
+
+/* El monumento/lápida base */
+.monumento-item {
+  background-color: #312e81; /* Indigo eclesiástico */
+  color: #818cf8;
+  border: 1px solid #4338ca;
+  width: 100px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Clase auxiliar para anular la altura forzada y dejar que flex-start/end/center funcionen,
+   de lo contrario, si miden lo mismo que el padre, no se apreciaría el movimiento */
+.item-alto-libre {
+  height: 60px;
+}
+
+/* Modificadores de fuentes para la prueba de baseline */
+.fuente-chica   { font-size: 0.8rem; }
+.fuente-mediana { font-size: 1.3rem; }
+.fuente-grande  { font-size: 1.9rem; }
+
+/* ==========================================================================
+   LAS 5 VARIANTES DE ALINEACIÓN VERTICAL (EJE SECUNDARIO)
+   ========================================================================== */
+
+/* stretch: Los elementos se estiran automáticamente para cubrir todo el alto 
+   del contenedor (siempre y cuando no tengan un 'height' fijo declarado). */
+.stretch {
+  align-items: stretch;
+}
+
+/* flex-start: Alinea las cajas al inicio del eje secundario (en la parte superior). */
+.inicio {
+  align-items: flex-start;
+}
+
+/* flex-end: Empuja y asienta las cajas al final del eje secundario (en la parte inferior). */
+.fin {
+  align-items: flex-end;
+}
+
+/* center: Centra los elementos de forma perfectamente simétrica entre el techo y el suelo. */
+.centro {
+  align-items: center;
+}
+
+/* baseline: Alinea los elementos de tal manera que las líneas base de sus textos (el renglón 
+   donde descansan las letras) queden perfectamente alineadas de forma horizontal, 
+   sin importar que los contenedores tengan diferentes tamaños de tipografía. */
+.baseline {
+  align-items: baseline;
+}
